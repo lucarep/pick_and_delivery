@@ -1,0 +1,8 @@
+prefix=/home/luca/pick_and_delivery/prog_ws/devel
+
+Name: prog_pkg
+Description: Description of prog_pkg
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
