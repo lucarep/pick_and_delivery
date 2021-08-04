@@ -168,6 +168,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+prog_pkg/CMakeFiles/picker.dir/rule:
+	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f CMakeFiles/Makefile2 prog_pkg/CMakeFiles/picker.dir/rule
+.PHONY : prog_pkg/CMakeFiles/picker.dir/rule
+
+# Convenience name for target.
+picker: prog_pkg/CMakeFiles/picker.dir/rule
+
+.PHONY : picker
+
+# fast build rule for target.
+picker/fast:
+	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f prog_pkg/CMakeFiles/picker.dir/build.make prog_pkg/CMakeFiles/picker.dir/build
+.PHONY : picker/fast
+
+# Convenience name for target.
 prog_pkg/CMakeFiles/set_goal.dir/rule:
 	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f CMakeFiles/Makefile2 prog_pkg/CMakeFiles/set_goal.dir/rule
 .PHONY : prog_pkg/CMakeFiles/set_goal.dir/rule
@@ -316,6 +331,21 @@ _prog_pkg_generate_messages_check_deps_Goal: prog_pkg/CMakeFiles/_prog_pkg_gener
 _prog_pkg_generate_messages_check_deps_Goal/fast:
 	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_Goal.dir/build.make prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_Goal.dir/build
 .PHONY : _prog_pkg_generate_messages_check_deps_Goal/fast
+
+# Convenience name for target.
+prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_Deliver.dir/rule:
+	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f CMakeFiles/Makefile2 prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_Deliver.dir/rule
+.PHONY : prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_Deliver.dir/rule
+
+# Convenience name for target.
+_prog_pkg_generate_messages_check_deps_Deliver: prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_Deliver.dir/rule
+
+.PHONY : _prog_pkg_generate_messages_check_deps_Deliver
+
+# fast build rule for target.
+_prog_pkg_generate_messages_check_deps_Deliver/fast:
+	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_Deliver.dir/build.make prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_Deliver.dir/build
+.PHONY : _prog_pkg_generate_messages_check_deps_Deliver/fast
 
 # Convenience name for target.
 prog_pkg/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
@@ -708,6 +738,21 @@ geometry_msgs_generate_messages_lisp/fast:
 .PHONY : geometry_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
+prog_pkg/CMakeFiles/set_goal_test.dir/rule:
+	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f CMakeFiles/Makefile2 prog_pkg/CMakeFiles/set_goal_test.dir/rule
+.PHONY : prog_pkg/CMakeFiles/set_goal_test.dir/rule
+
+# Convenience name for target.
+set_goal_test: prog_pkg/CMakeFiles/set_goal_test.dir/rule
+
+.PHONY : set_goal_test
+
+# fast build rule for target.
+set_goal_test/fast:
+	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f prog_pkg/CMakeFiles/set_goal_test.dir/build.make prog_pkg/CMakeFiles/set_goal_test.dir/build
+.PHONY : set_goal_test/fast
+
+# Convenience name for target.
 prog_pkg/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
 	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f CMakeFiles/Makefile2 prog_pkg/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
 .PHONY : prog_pkg/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
@@ -828,6 +873,21 @@ actionlib_msgs_generate_messages_py/fast:
 .PHONY : actionlib_msgs_generate_messages_py/fast
 
 # Convenience name for target.
+prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_Picker.dir/rule:
+	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f CMakeFiles/Makefile2 prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_Picker.dir/rule
+.PHONY : prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_Picker.dir/rule
+
+# Convenience name for target.
+_prog_pkg_generate_messages_check_deps_Picker: prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_Picker.dir/rule
+
+.PHONY : _prog_pkg_generate_messages_check_deps_Picker
+
+# fast build rule for target.
+_prog_pkg_generate_messages_check_deps_Picker/fast:
+	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_Picker.dir/build.make prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_Picker.dir/build
+.PHONY : _prog_pkg_generate_messages_check_deps_Picker/fast
+
+# Convenience name for target.
 prog_pkg/CMakeFiles/actionlib_generate_messages_eus.dir/rule:
 	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f CMakeFiles/Makefile2 prog_pkg/CMakeFiles/actionlib_generate_messages_eus.dir/rule
 .PHONY : prog_pkg/CMakeFiles/actionlib_generate_messages_eus.dir/rule
@@ -887,6 +947,33 @@ actionlib_generate_messages_py/fast:
 	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f prog_pkg/CMakeFiles/actionlib_generate_messages_py.dir/build.make prog_pkg/CMakeFiles/actionlib_generate_messages_py.dir/build
 .PHONY : actionlib_generate_messages_py/fast
 
+src/picker.o: src/picker.cpp.o
+
+.PHONY : src/picker.o
+
+# target to build an object file
+src/picker.cpp.o:
+	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f prog_pkg/CMakeFiles/picker.dir/build.make prog_pkg/CMakeFiles/picker.dir/src/picker.cpp.o
+.PHONY : src/picker.cpp.o
+
+src/picker.i: src/picker.cpp.i
+
+.PHONY : src/picker.i
+
+# target to preprocess a source file
+src/picker.cpp.i:
+	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f prog_pkg/CMakeFiles/picker.dir/build.make prog_pkg/CMakeFiles/picker.dir/src/picker.cpp.i
+.PHONY : src/picker.cpp.i
+
+src/picker.s: src/picker.cpp.s
+
+.PHONY : src/picker.s
+
+# target to generate assembly for a file
+src/picker.cpp.s:
+	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f prog_pkg/CMakeFiles/picker.dir/build.make prog_pkg/CMakeFiles/picker.dir/src/picker.cpp.s
+.PHONY : src/picker.cpp.s
+
 src/set_goal.o: src/set_goal.cpp.o
 
 .PHONY : src/set_goal.o
@@ -914,6 +1001,33 @@ src/set_goal.cpp.s:
 	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f prog_pkg/CMakeFiles/set_goal.dir/build.make prog_pkg/CMakeFiles/set_goal.dir/src/set_goal.cpp.s
 .PHONY : src/set_goal.cpp.s
 
+src/set_goal_test.o: src/set_goal_test.cpp.o
+
+.PHONY : src/set_goal_test.o
+
+# target to build an object file
+src/set_goal_test.cpp.o:
+	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f prog_pkg/CMakeFiles/set_goal_test.dir/build.make prog_pkg/CMakeFiles/set_goal_test.dir/src/set_goal_test.cpp.o
+.PHONY : src/set_goal_test.cpp.o
+
+src/set_goal_test.i: src/set_goal_test.cpp.i
+
+.PHONY : src/set_goal_test.i
+
+# target to preprocess a source file
+src/set_goal_test.cpp.i:
+	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f prog_pkg/CMakeFiles/set_goal_test.dir/build.make prog_pkg/CMakeFiles/set_goal_test.dir/src/set_goal_test.cpp.i
+.PHONY : src/set_goal_test.cpp.i
+
+src/set_goal_test.s: src/set_goal_test.cpp.s
+
+.PHONY : src/set_goal_test.s
+
+# target to generate assembly for a file
+src/set_goal_test.cpp.s:
+	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f prog_pkg/CMakeFiles/set_goal_test.dir/build.make prog_pkg/CMakeFiles/set_goal_test.dir/src/set_goal_test.cpp.s
+.PHONY : src/set_goal_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -923,6 +1037,7 @@ help:
 	@echo "... install/local"
 	@echo "... install"
 	@echo "... list_install_components"
+	@echo "... picker"
 	@echo "... set_goal"
 	@echo "... prog_pkg_genpy"
 	@echo "... prog_pkg_generate_messages_py"
@@ -934,6 +1049,7 @@ help:
 	@echo "... prog_pkg_gencpp"
 	@echo "... prog_pkg_generate_messages_cpp"
 	@echo "... _prog_pkg_generate_messages_check_deps_Goal"
+	@echo "... _prog_pkg_generate_messages_check_deps_Deliver"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_eus"
@@ -961,6 +1077,7 @@ help:
 	@echo "... geometry_msgs_generate_messages_eus"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_lisp"
+	@echo "... set_goal_test"
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... tf2_msgs_generate_messages_cpp"
 	@echo "... tf2_msgs_generate_messages_nodejs"
@@ -970,14 +1087,21 @@ help:
 	@echo "... actionlib_msgs_generate_messages_eus"
 	@echo "... actionlib_msgs_generate_messages_lisp"
 	@echo "... actionlib_msgs_generate_messages_py"
+	@echo "... _prog_pkg_generate_messages_check_deps_Picker"
 	@echo "... actionlib_generate_messages_eus"
 	@echo "... actionlib_generate_messages_lisp"
 	@echo "... test"
 	@echo "... actionlib_generate_messages_nodejs"
 	@echo "... actionlib_generate_messages_py"
+	@echo "... src/picker.o"
+	@echo "... src/picker.i"
+	@echo "... src/picker.s"
 	@echo "... src/set_goal.o"
 	@echo "... src/set_goal.i"
 	@echo "... src/set_goal.s"
+	@echo "... src/set_goal_test.o"
+	@echo "... src/set_goal_test.i"
+	@echo "... src/set_goal_test.s"
 .PHONY : help
 
 

@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Goal.msg"
+messages_str = "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Goal.msg;/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Deliver.msg;/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Picker.msg"
 services_str = ""
 pkg_name = "prog_pkg"
 dependencies_str = "std_msgs"

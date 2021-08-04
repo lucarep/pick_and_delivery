@@ -53,6 +53,8 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(
    FILES
    Goal.msg
+   Deliver.msg 
+   Picker.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -140,6 +142,14 @@ include_directories(
 add_executable(set_goal src/set_goal.cpp)
 target_link_libraries(set_goal ${catkin_LIBRARIES})
 add_dependencies(set_goal prog_pkg_generate_messages_cpp)
+
+add_executable(picker src/picker.cpp)
+target_link_libraries(picker ${catkin_LIBRARIES})
+add_dependencies(picker prog_pkg_generate_messages_cpp)
+
+add_executable(set_goal_test src/set_goal_test.cpp)
+target_link_libraries(set_goal_test ${catkin_LIBRARIES})
+add_dependencies(set_goal_test prog_pkg_generate_messages_cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the

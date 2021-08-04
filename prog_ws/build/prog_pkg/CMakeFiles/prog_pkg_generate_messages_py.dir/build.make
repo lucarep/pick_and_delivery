@@ -53,21 +53,37 @@ CMAKE_BINARY_DIR = /home/luca/pick_and_delivery/prog_ws/build
 # Include the progress variables for this target.
 include prog_pkg/CMakeFiles/prog_pkg_generate_messages_py.dir/progress.make
 
+prog_pkg/CMakeFiles/prog_pkg_generate_messages_py: /home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg/_Deliver.py
+prog_pkg/CMakeFiles/prog_pkg_generate_messages_py: /home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg/_Picker.py
 prog_pkg/CMakeFiles/prog_pkg_generate_messages_py: /home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg/_Goal.py
 prog_pkg/CMakeFiles/prog_pkg_generate_messages_py: /home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg/__init__.py
 
 
+/home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg/_Deliver.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
+/home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg/_Deliver.py: /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Deliver.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG prog_pkg/Deliver"
+	cd /home/luca/pick_and_delivery/prog_ws/build/prog_pkg && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Deliver.msg -Iprog_pkg:/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prog_pkg -o /home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg
+
+/home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg/_Picker.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
+/home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg/_Picker.py: /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Picker.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG prog_pkg/Picker"
+	cd /home/luca/pick_and_delivery/prog_ws/build/prog_pkg && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Picker.msg -Iprog_pkg:/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prog_pkg -o /home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg
+
 /home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg/_Goal.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
 /home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg/_Goal.py: /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Goal.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG prog_pkg/Goal"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python from MSG prog_pkg/Goal"
 	cd /home/luca/pick_and_delivery/prog_ws/build/prog_pkg && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Goal.msg -Iprog_pkg:/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prog_pkg -o /home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg
 
 /home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg/__init__.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
+/home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg/__init__.py: /home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg/_Deliver.py
+/home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg/__init__.py: /home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg/_Picker.py
 /home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg/__init__.py: /home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg/_Goal.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python msg __init__.py for prog_pkg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python msg __init__.py for prog_pkg"
 	cd /home/luca/pick_and_delivery/prog_ws/build/prog_pkg && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg --initpy
 
 prog_pkg_generate_messages_py: prog_pkg/CMakeFiles/prog_pkg_generate_messages_py
+prog_pkg_generate_messages_py: /home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg/_Deliver.py
+prog_pkg_generate_messages_py: /home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg/_Picker.py
 prog_pkg_generate_messages_py: /home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg/_Goal.py
 prog_pkg_generate_messages_py: /home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg/__init__.py
 prog_pkg_generate_messages_py: prog_pkg/CMakeFiles/prog_pkg_generate_messages_py.dir/build.make

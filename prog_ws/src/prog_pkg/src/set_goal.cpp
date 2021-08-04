@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include "std_msgs/String.h"
 #include "prog_pkg/Goal.h"
+#include "prog_pkg/Picker.h"
+#include "prog_pkg/Deliver.h"
 #include "geometry_msgs/PoseStamped.h"
 #include "tf/tf.h"
 #include "tf2_msgs/TFMessage.h"
@@ -74,6 +76,13 @@ void SetGoal_Callback(const prog_pkg::Goal& new_goal){
     target_position[0] = new_goal_msg.pose.position.x;
     target_position[1] = new_goal_msg.pose.position.y;
 
+}
+
+void pickerCallback(const prog_pkg::Picker& picker)
+{
+    ROS_INFO("ricevo valore picker x di: [%f]",picker.x);
+    ROS_INFO("ricevo valore picker y di: [%f]",picker.y);
+    ROS_INFO("ricevo valore picker theta di: [%f]",picker.theta);
 }
 
 /*
@@ -166,8 +175,11 @@ int main(int argc, char **argv){
 
     ros::Rate loop_rate(T);
 
-    ros::Subscriber sub = n.subscribe("New_Goal",1000,SetGoal_Callback);
-    ros::Subscriber sub_tf = n.subscribe("tf",1000,position_CallBack);
+    // ros::Subscriber sub = n.subscribe("New_Goal",1000,SetGoal_Callback);
+    // ros::Subscriber sub_tf = n.subscribe("tf",1000,position_CallBack);
+
+    // ricevo le coordinate del picker
+    ros::Subscriber sub_picker = n.subscribe("picker",1000,pickerCallback);
 
     /* Controllo con dei tempi prefissati lo stato della navigazione
     *  del robot

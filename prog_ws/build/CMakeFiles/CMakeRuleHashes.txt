@@ -1,13 +1,25 @@
 # Hashes of file build rules.
+fba1287b98454b93952f34ae85d5ce24 /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Deliver.h
 be571c9eff4f4585a4f33e29223a6a2f /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Goal.h
+5bc00adbec09506c8e3786443f80483b /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Picker.h
+a6613620514c64c0e2da30a3609828fb /home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg/_Deliver.py
 2a2dc357c849339619d0c84cc5afa5bd /home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg/_Goal.py
+2caf2589934be21e824e25cc35e5fd71 /home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg/_Picker.py
 d1d768b98289161d86a474b9913edfe6 /home/luca/pick_and_delivery/prog_ws/devel/lib/python2.7/dist-packages/prog_pkg/msg/__init__.py
+4c8526270eeebcea0e9dd3bb59c6139c /home/luca/pick_and_delivery/prog_ws/devel/share/common-lisp/ros/prog_pkg/msg/Deliver.lisp
 81423a3c40ab093e8404c0673f2c7f9b /home/luca/pick_and_delivery/prog_ws/devel/share/common-lisp/ros/prog_pkg/msg/Goal.lisp
+ec97543c105bff88b9561e11811ab354 /home/luca/pick_and_delivery/prog_ws/devel/share/common-lisp/ros/prog_pkg/msg/Picker.lisp
+c6c4c4a33653744dd8683a0daba7ffb4 /home/luca/pick_and_delivery/prog_ws/devel/share/gennodejs/ros/prog_pkg/msg/Deliver.js
 33f50b0a8702a1f36ade08decadb08a6 /home/luca/pick_and_delivery/prog_ws/devel/share/gennodejs/ros/prog_pkg/msg/Goal.js
+3220ebc5a7c726b2c6999e3d88b08e20 /home/luca/pick_and_delivery/prog_ws/devel/share/gennodejs/ros/prog_pkg/msg/Picker.js
 80ee850d6b8507e9aa45c3917812d8a1 /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/manifest.l
+41a756283c6cfef8c77f7cde5ef44711 /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/msg/Deliver.l
 ac0e3d9cdead2c381adf3b81b94f27b2 /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/msg/Goal.l
+0160f9cc0ceec5ed9a1198766f9c0242 /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/msg/Picker.l
 cbcc3318be6f96e2af9d0c4a4119f294 CMakeFiles/clean_test_results
+116ce20f44b94de373b7baa16e5ff41d prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_Deliver
 23358d91f5c384fa93428403916055d1 prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_Goal
+f82be4e6956b94e0f14bad2ddf0bcafa prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_Picker
 386a1165dc874aa2e1bc5d80eaa15d1c prog_pkg/CMakeFiles/prog_pkg_generate_messages_cpp
 386a1165dc874aa2e1bc5d80eaa15d1c prog_pkg/CMakeFiles/prog_pkg_generate_messages_eus
 386a1165dc874aa2e1bc5d80eaa15d1c prog_pkg/CMakeFiles/prog_pkg_generate_messages_lisp
