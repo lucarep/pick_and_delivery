@@ -27,6 +27,8 @@ ros/ros.h
 /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/src/ros/ros.h
 vector
 -
+stdio.h
+-
 std_msgs/String.h
 /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/src/std_msgs/String.h
 prog_pkg/Goal.h
