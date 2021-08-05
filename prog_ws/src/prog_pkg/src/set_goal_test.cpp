@@ -15,13 +15,15 @@
 #include "sensor_msgs/LaserScan.h"
 
 // Flag di controllo
+int message_published = 0;
 int info_published = 0;
 int info2_published = 0;
+int pick_position_set = 0;
 int cruising = 0;
 int reached_goal = 0;
 
 // Vettori di posizione
-std::vector<float> pick_position(2,0);
+std::vector<float> picker_position(2,0);
 std::vector<float> delivery_position(2,0);
 std::vector<float> old_position(2,0);
 std::vector<float> current_position(2,0);
@@ -38,16 +40,12 @@ float T = 1;
 * e setta un nuovo goal
 */
 
-void pickerCallback(const prog_pkg::Picker& picker)
-{
-    if (info_published == 0)
-    {
-        ROS_INFO("ricevo valore picker x di: [%f]",picker.x);
-        ROS_INFO("ricevo valore picker y di: [%f]",picker.y);
-        ROS_INFO("ricevo valore picker theta di: [%f]",picker.theta);
-        std::cout << ("----------------------------------------") << '\n';
-        info_published++;
-    }
+void SetGoal_Callback(const prog_pkg::Picker& new_goal){
+
+    /*
+    * Per settare una posizione che non faccia crashare il programma
+    * usare la funzione 2D Nav Goal di rviz e stampare le coordinate con echo
+    */
 
     new_goal_msg.header.seq = n;
     n++;
@@ -57,8 +55,8 @@ void pickerCallback(const prog_pkg::Picker& picker)
     new_goal_msg.header.stamp = ros::Time::now();
     new_goal_msg.header.frame_id = "map";
 
-    new_goal_msg.pose.position.x = picker.x;
-    new_goal_msg.pose.position.y = picker.y;
+    new_goal_msg.pose.position.x = new_goal.x;
+    new_goal_msg.pose.position.y = new_goal.y;
     new_goal_msg.pose.position.z = 0;
 
     /*
@@ -70,7 +68,11 @@ void pickerCallback(const prog_pkg::Picker& picker)
     new_goal_msg.pose.orientation.x = 0;
     new_goal_msg.pose.orientation.y = 0;
     new_goal_msg.pose.orientation.z = 0;
-    new_goal_msg.pose.orientation.w = picker.theta;
+    new_goal_msg.pose.orientation.w = new_goal.theta;
+
+    // Per chiamare la callback solo una volta
+
+    message_published = 1;
 
     // Inizio lo spostamento
 
@@ -78,9 +80,9 @@ void pickerCallback(const prog_pkg::Picker& picker)
 
     // Salvare le coordinate del goal
 
-    pick_position[0] = new_goal_msg.pose.position.x;
-    pick_position[1] = new_goal_msg.pose.position.y;
-   
+    picker_position[0] = new_goal_msg.pose.position.x;
+    picker_position[1] = new_goal_msg.pose.position.y;
+
 }
 
 /*
@@ -144,7 +146,7 @@ void navigationCallback(const ros::TimerEvent& event)
         {
             ROS_INFO("Sono bloccato!");
         }
-        if (sqrt(pow(current_position[0] - pick_position[0],2) + pow(current_position[1] - pick_position[1],2)) < 1.5)
+        if (sqrt(pow(current_position[0] - picker_position[0],2) + pow(current_position[1] - picker_position[1],2)) < 1.5)
         {
             ROS_INFO("Arrivato a destinazione");
             cruising = 0;
@@ -161,7 +163,7 @@ void elapsedCallback(const ros::TimerEvent& event)
     {
         ROS_INFO("Controllo se è passato troppo tempo");
         float distance;
-        distance = sqrt(pow(current_position[0] - pick_position[0],2) + pow(current_position[1] - pick_position[1],2));
+        distance = sqrt(pow(current_position[0] - picker_position[0],2) + pow(current_position[1] - picker_position[1],2));
 
         if (distance > 0.5)
         {
@@ -183,17 +185,20 @@ int main(int argc, char **argv){
 
     ros::init(argc,argv,"set_goal_test");
 
-    tf2_ros::TransformListener tfListener(tfBuffer);
+    ros::NodeHandle n;
 
     ros::Rate loop_rate(T);
 
-    ros::NodeHandle n;
-
-    ros::Subscriber sub_picker = n.subscribe("picker",1000,pickerCallback);
+    ros::Subscriber sub_picker = n.subscribe("picker",1000,SetGoal_Callback);
 
     ros::Subscriber sub_deliver = n.subscribe("deliver",1000,deliverCallback);
 
+    ros::Publisher pub = n.advertise<geometry_msgs::PoseStamped>("/move_base_simple/goal",1000);
+
+    tf2_ros::TransformListener tfListener(tfBuffer);
+
     ros::Subscriber sub_tf = n.subscribe("tf",1000,position_CallBack);
+
 
     /* 
     *  Controllo con dei tempi prefissati lo stato della navigazione
@@ -203,7 +208,27 @@ int main(int argc, char **argv){
     ros::Timer check_navigation = n.createTimer(ros::Duration(0.5), navigationCallback);
     ros::Timer elapsed_time = n.createTimer(ros::Duration(50), elapsedCallback);
 
+    int count = 0;
+    while (ros::ok())
+    {
+        // Viene inviato un solo messaggio con le coordinate
+        if(message_published != 0)
+        {
+            ROS_INFO("Publishing a new goal position");
+            pub.publish(new_goal_msg);
+            message_published = 0;
+        }
+
+        ros::spinOnce();
+
+        loop_rate.sleep();
+
+        ++count;
+    }
+    
+
     ros::spin();
+    
 
     return 0;
 

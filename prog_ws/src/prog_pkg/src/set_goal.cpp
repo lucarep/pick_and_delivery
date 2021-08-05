@@ -33,7 +33,7 @@ float T = 1;
 * e setta un nuovo goal
 */
 
-void SetGoal_Callback(const prog_pkg::Goal& new_goal){
+void SetGoal_Callback(const prog_pkg::Picker& new_goal){
 
     /*
     * Per settare una posizione che non faccia crashare il programma
@@ -77,6 +77,8 @@ void SetGoal_Callback(const prog_pkg::Goal& new_goal){
     target_position[1] = new_goal_msg.pose.position.y;
 
 }
+
+
 
 /*
 * Funzione che verifica la posizione del robot verificando se posso
@@ -168,7 +170,8 @@ int main(int argc, char **argv){
 
     ros::Rate loop_rate(T);
 
-    ros::Subscriber sub = n.subscribe("New_Goal",1000,SetGoal_Callback);
+    // ros::Subscriber sub = n.subscribe("New_Goal",1000,SetGoal_Callback);
+    ros::Subscriber sub_picker = n.subscribe("picker",1000,SetGoal_Callback);
     ros::Subscriber sub_tf = n.subscribe("tf",1000,position_CallBack);
 
     /* Controllo con dei tempi prefissati lo stato della navigazione
@@ -195,6 +198,8 @@ int main(int argc, char **argv){
 
         ++count;
     }
+
+    ros::spin();
     
     return 0;
 }
