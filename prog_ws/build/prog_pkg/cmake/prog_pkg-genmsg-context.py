@@ -1,7 +1,7 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Goal.msg;/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Deliver.msg;/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Picker.msg"
-services_str = ""
+messages_str = "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Arrived.msg;/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Goal.msg;/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Deliver.msg;/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Picker.msg"
+services_str = "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/srv/IsLoaded.srv"
 pkg_name = "prog_pkg"
 dependencies_str = "std_msgs"
 langs = "gencpp;geneus;genlisp;gennodejs;genpy"

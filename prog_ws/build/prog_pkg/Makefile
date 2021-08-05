@@ -56,18 +56,6 @@ CMAKE_BINARY_DIR = /home/luca/pick_and_delivery/prog_ws/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -100,6 +88,18 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -243,21 +243,6 @@ prog_pkg_gennodejs/fast:
 .PHONY : prog_pkg_gennodejs/fast
 
 # Convenience name for target.
-prog_pkg/CMakeFiles/prog_pkg_geneus.dir/rule:
-	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f CMakeFiles/Makefile2 prog_pkg/CMakeFiles/prog_pkg_geneus.dir/rule
-.PHONY : prog_pkg/CMakeFiles/prog_pkg_geneus.dir/rule
-
-# Convenience name for target.
-prog_pkg_geneus: prog_pkg/CMakeFiles/prog_pkg_geneus.dir/rule
-
-.PHONY : prog_pkg_geneus
-
-# fast build rule for target.
-prog_pkg_geneus/fast:
-	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f prog_pkg/CMakeFiles/prog_pkg_geneus.dir/build.make prog_pkg/CMakeFiles/prog_pkg_geneus.dir/build
-.PHONY : prog_pkg_geneus/fast
-
-# Convenience name for target.
 prog_pkg/CMakeFiles/prog_pkg_generate_messages_nodejs.dir/rule:
 	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f CMakeFiles/Makefile2 prog_pkg/CMakeFiles/prog_pkg_generate_messages_nodejs.dir/rule
 .PHONY : prog_pkg/CMakeFiles/prog_pkg_generate_messages_nodejs.dir/rule
@@ -331,6 +316,51 @@ _prog_pkg_generate_messages_check_deps_Goal: prog_pkg/CMakeFiles/_prog_pkg_gener
 _prog_pkg_generate_messages_check_deps_Goal/fast:
 	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_Goal.dir/build.make prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_Goal.dir/build
 .PHONY : _prog_pkg_generate_messages_check_deps_Goal/fast
+
+# Convenience name for target.
+prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_Arrived.dir/rule:
+	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f CMakeFiles/Makefile2 prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_Arrived.dir/rule
+.PHONY : prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_Arrived.dir/rule
+
+# Convenience name for target.
+_prog_pkg_generate_messages_check_deps_Arrived: prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_Arrived.dir/rule
+
+.PHONY : _prog_pkg_generate_messages_check_deps_Arrived
+
+# fast build rule for target.
+_prog_pkg_generate_messages_check_deps_Arrived/fast:
+	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_Arrived.dir/build.make prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_Arrived.dir/build
+.PHONY : _prog_pkg_generate_messages_check_deps_Arrived/fast
+
+# Convenience name for target.
+prog_pkg/CMakeFiles/prog_pkg_geneus.dir/rule:
+	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f CMakeFiles/Makefile2 prog_pkg/CMakeFiles/prog_pkg_geneus.dir/rule
+.PHONY : prog_pkg/CMakeFiles/prog_pkg_geneus.dir/rule
+
+# Convenience name for target.
+prog_pkg_geneus: prog_pkg/CMakeFiles/prog_pkg_geneus.dir/rule
+
+.PHONY : prog_pkg_geneus
+
+# fast build rule for target.
+prog_pkg_geneus/fast:
+	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f prog_pkg/CMakeFiles/prog_pkg_geneus.dir/build.make prog_pkg/CMakeFiles/prog_pkg_geneus.dir/build
+.PHONY : prog_pkg_geneus/fast
+
+# Convenience name for target.
+prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_IsLoaded.dir/rule:
+	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f CMakeFiles/Makefile2 prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_IsLoaded.dir/rule
+.PHONY : prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_IsLoaded.dir/rule
+
+# Convenience name for target.
+_prog_pkg_generate_messages_check_deps_IsLoaded: prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_IsLoaded.dir/rule
+
+.PHONY : _prog_pkg_generate_messages_check_deps_IsLoaded
+
+# fast build rule for target.
+_prog_pkg_generate_messages_check_deps_IsLoaded/fast:
+	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_IsLoaded.dir/build.make prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_IsLoaded.dir/build
+.PHONY : _prog_pkg_generate_messages_check_deps_IsLoaded/fast
 
 # Convenience name for target.
 prog_pkg/CMakeFiles/_prog_pkg_generate_messages_check_deps_Deliver.dir/rule:
@@ -1034,7 +1064,6 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install/local"
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... picker"
@@ -1043,12 +1072,15 @@ help:
 	@echo "... prog_pkg_generate_messages_py"
 	@echo "... edit_cache"
 	@echo "... prog_pkg_gennodejs"
-	@echo "... prog_pkg_geneus"
 	@echo "... prog_pkg_generate_messages_nodejs"
 	@echo "... prog_pkg_generate_messages_eus"
 	@echo "... prog_pkg_gencpp"
 	@echo "... prog_pkg_generate_messages_cpp"
 	@echo "... _prog_pkg_generate_messages_check_deps_Goal"
+	@echo "... install/local"
+	@echo "... _prog_pkg_generate_messages_check_deps_Arrived"
+	@echo "... prog_pkg_geneus"
+	@echo "... _prog_pkg_generate_messages_check_deps_IsLoaded"
 	@echo "... _prog_pkg_generate_messages_check_deps_Deliver"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... std_msgs_generate_messages_nodejs"

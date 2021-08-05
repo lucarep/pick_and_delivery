@@ -4,6 +4,8 @@
 (defsystem "prog_pkg-msg"
   :depends-on (:roslisp-msg-protocol :roslisp-utils )
   :components ((:file "_package")
+    (:file "Arrived" :depends-on ("_package_Arrived"))
+    (:file "_package_Arrived" :depends-on ("_package"))
     (:file "Deliver" :depends-on ("_package_Deliver"))
     (:file "_package_Deliver" :depends-on ("_package"))
     (:file "Goal" :depends-on ("_package_Goal"))

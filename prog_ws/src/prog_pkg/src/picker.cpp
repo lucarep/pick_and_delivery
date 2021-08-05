@@ -5,6 +5,7 @@
 #include "prog_pkg/Goal.h"
 #include "prog_pkg/Picker.h"
 #include "prog_pkg/Deliver.h"
+#include "prog_pkg/Arrived.h"
 #include "geometry_msgs/PoseStamped.h"
 #include "tf/tf.h"
 #include "tf2_msgs/TFMessage.h"
@@ -30,6 +31,12 @@ float deliver_theta;
 
 int message_published = 0;
 int info_published = 0;
+int is_arrived = 0;
+
+void arrivedCallback(const prog_pkg::Arrived& arrived){
+    ROS_INFO("Eccomi,sono arrivato da te e sono pronto per ricevere il pacco");
+    is_arrived = arrived.reached_goal;
+}
 
 
 int main(int argc, char **argv){
@@ -67,6 +74,8 @@ int main(int argc, char **argv){
     ros::Publisher picker_pub = n.advertise<prog_pkg::Picker>("picker",1000);
 
     ros::Publisher deliver_pub = n.advertise<prog_pkg::Deliver>("deliver",1000);
+
+    ros::Subscriber sub_arrived = n.subscribe("arrived",1000,arrivedCallback);
 
     ros::Rate loop_rate(10);
 
@@ -113,6 +122,10 @@ int main(int argc, char **argv){
         loop_rate.sleep();
         ++count; 
     }
+
+    //ros::ServiceServer service = n.advertiseService("IsLoaded",isLoaded);
+    //ros::spin();
+    ROS_INFO("Questa parte non viene eseguita");
     
     return 0;
 }

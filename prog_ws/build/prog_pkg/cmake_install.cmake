@@ -39,10 +39,15 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/prog_pkg/msg" TYPE FILE FILES
+    "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Arrived.msg"
     "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Goal.msg"
     "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Deliver.msg"
     "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Picker.msg"
     )
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/prog_pkg/srv" TYPE FILE FILES "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/srv/IsLoaded.srv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)

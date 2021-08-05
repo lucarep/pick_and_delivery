@@ -54,8 +54,10 @@ CMAKE_BINARY_DIR = /home/luca/pick_and_delivery/prog_ws/build
 include prog_pkg/CMakeFiles/prog_pkg_generate_messages_cpp.dir/progress.make
 
 prog_pkg/CMakeFiles/prog_pkg_generate_messages_cpp: /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Deliver.h
+prog_pkg/CMakeFiles/prog_pkg_generate_messages_cpp: /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Arrived.h
 prog_pkg/CMakeFiles/prog_pkg_generate_messages_cpp: /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Picker.h
 prog_pkg/CMakeFiles/prog_pkg_generate_messages_cpp: /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Goal.h
+prog_pkg/CMakeFiles/prog_pkg_generate_messages_cpp: /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/IsLoaded.h
 
 
 /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Deliver.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
@@ -64,22 +66,37 @@ prog_pkg/CMakeFiles/prog_pkg_generate_messages_cpp: /home/luca/pick_and_delivery
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from prog_pkg/Deliver.msg"
 	cd /home/luca/pick_and_delivery/prog_ws/src/prog_pkg && /home/luca/pick_and_delivery/prog_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Deliver.msg -Iprog_pkg:/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prog_pkg -o /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg -e /opt/ros/melodic/share/gencpp/cmake/..
 
+/home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Arrived.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
+/home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Arrived.h: /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Arrived.msg
+/home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Arrived.h: /opt/ros/melodic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from prog_pkg/Arrived.msg"
+	cd /home/luca/pick_and_delivery/prog_ws/src/prog_pkg && /home/luca/pick_and_delivery/prog_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Arrived.msg -Iprog_pkg:/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prog_pkg -o /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg -e /opt/ros/melodic/share/gencpp/cmake/..
+
 /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Picker.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Picker.h: /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Picker.msg
 /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Picker.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from prog_pkg/Picker.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from prog_pkg/Picker.msg"
 	cd /home/luca/pick_and_delivery/prog_ws/src/prog_pkg && /home/luca/pick_and_delivery/prog_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Picker.msg -Iprog_pkg:/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prog_pkg -o /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg -e /opt/ros/melodic/share/gencpp/cmake/..
 
 /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Goal.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Goal.h: /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Goal.msg
 /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Goal.h: /opt/ros/melodic/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from prog_pkg/Goal.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating C++ code from prog_pkg/Goal.msg"
 	cd /home/luca/pick_and_delivery/prog_ws/src/prog_pkg && /home/luca/pick_and_delivery/prog_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Goal.msg -Iprog_pkg:/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prog_pkg -o /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg -e /opt/ros/melodic/share/gencpp/cmake/..
+
+/home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/IsLoaded.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
+/home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/IsLoaded.h: /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/srv/IsLoaded.srv
+/home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/IsLoaded.h: /opt/ros/melodic/share/gencpp/msg.h.template
+/home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/IsLoaded.h: /opt/ros/melodic/share/gencpp/srv.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating C++ code from prog_pkg/IsLoaded.srv"
+	cd /home/luca/pick_and_delivery/prog_ws/src/prog_pkg && /home/luca/pick_and_delivery/prog_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/srv/IsLoaded.srv -Iprog_pkg:/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prog_pkg -o /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg -e /opt/ros/melodic/share/gencpp/cmake/..
 
 prog_pkg_generate_messages_cpp: prog_pkg/CMakeFiles/prog_pkg_generate_messages_cpp
 prog_pkg_generate_messages_cpp: /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Deliver.h
+prog_pkg_generate_messages_cpp: /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Arrived.h
 prog_pkg_generate_messages_cpp: /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Picker.h
 prog_pkg_generate_messages_cpp: /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Goal.h
+prog_pkg_generate_messages_cpp: /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/IsLoaded.h
 prog_pkg_generate_messages_cpp: prog_pkg/CMakeFiles/prog_pkg_generate_messages_cpp.dir/build.make
 
 .PHONY : prog_pkg_generate_messages_cpp

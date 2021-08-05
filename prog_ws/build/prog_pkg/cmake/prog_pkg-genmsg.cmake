@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "prog_pkg: 3 messages, 0 services")
+message(STATUS "prog_pkg: 4 messages, 1 services")
 
 set(MSG_I_FLAGS "-Iprog_pkg:/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg;-Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg")
 
@@ -22,9 +22,19 @@ add_custom_target(_prog_pkg_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "prog_pkg" "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Deliver.msg" ""
 )
 
+get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/srv/IsLoaded.srv" NAME_WE)
+add_custom_target(_prog_pkg_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "prog_pkg" "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/srv/IsLoaded.srv" ""
+)
+
 get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Picker.msg" NAME_WE)
 add_custom_target(_prog_pkg_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "prog_pkg" "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Picker.msg" ""
+)
+
+get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Arrived.msg" NAME_WE)
+add_custom_target(_prog_pkg_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "prog_pkg" "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Arrived.msg" ""
 )
 
 get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Goal.msg" NAME_WE)
@@ -45,6 +55,12 @@ _generate_msg_cpp(prog_pkg
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/prog_pkg
 )
 _generate_msg_cpp(prog_pkg
+  "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Arrived.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/prog_pkg
+)
+_generate_msg_cpp(prog_pkg
   "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Picker.msg"
   "${MSG_I_FLAGS}"
   ""
@@ -58,6 +74,12 @@ _generate_msg_cpp(prog_pkg
 )
 
 ### Generating Services
+_generate_srv_cpp(prog_pkg
+  "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/srv/IsLoaded.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/prog_pkg
+)
 
 ### Generating Module File
 _generate_module_cpp(prog_pkg
@@ -73,7 +95,11 @@ add_dependencies(prog_pkg_generate_messages prog_pkg_generate_messages_cpp)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Deliver.msg" NAME_WE)
 add_dependencies(prog_pkg_generate_messages_cpp _prog_pkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/srv/IsLoaded.srv" NAME_WE)
+add_dependencies(prog_pkg_generate_messages_cpp _prog_pkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Picker.msg" NAME_WE)
+add_dependencies(prog_pkg_generate_messages_cpp _prog_pkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Arrived.msg" NAME_WE)
 add_dependencies(prog_pkg_generate_messages_cpp _prog_pkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Goal.msg" NAME_WE)
 add_dependencies(prog_pkg_generate_messages_cpp _prog_pkg_generate_messages_check_deps_${_filename})
@@ -94,6 +120,12 @@ _generate_msg_eus(prog_pkg
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/prog_pkg
 )
 _generate_msg_eus(prog_pkg
+  "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Arrived.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/prog_pkg
+)
+_generate_msg_eus(prog_pkg
   "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Picker.msg"
   "${MSG_I_FLAGS}"
   ""
@@ -107,6 +139,12 @@ _generate_msg_eus(prog_pkg
 )
 
 ### Generating Services
+_generate_srv_eus(prog_pkg
+  "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/srv/IsLoaded.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/prog_pkg
+)
 
 ### Generating Module File
 _generate_module_eus(prog_pkg
@@ -122,7 +160,11 @@ add_dependencies(prog_pkg_generate_messages prog_pkg_generate_messages_eus)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Deliver.msg" NAME_WE)
 add_dependencies(prog_pkg_generate_messages_eus _prog_pkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/srv/IsLoaded.srv" NAME_WE)
+add_dependencies(prog_pkg_generate_messages_eus _prog_pkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Picker.msg" NAME_WE)
+add_dependencies(prog_pkg_generate_messages_eus _prog_pkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Arrived.msg" NAME_WE)
 add_dependencies(prog_pkg_generate_messages_eus _prog_pkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Goal.msg" NAME_WE)
 add_dependencies(prog_pkg_generate_messages_eus _prog_pkg_generate_messages_check_deps_${_filename})
@@ -143,6 +185,12 @@ _generate_msg_lisp(prog_pkg
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/prog_pkg
 )
 _generate_msg_lisp(prog_pkg
+  "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Arrived.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/prog_pkg
+)
+_generate_msg_lisp(prog_pkg
   "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Picker.msg"
   "${MSG_I_FLAGS}"
   ""
@@ -156,6 +204,12 @@ _generate_msg_lisp(prog_pkg
 )
 
 ### Generating Services
+_generate_srv_lisp(prog_pkg
+  "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/srv/IsLoaded.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/prog_pkg
+)
 
 ### Generating Module File
 _generate_module_lisp(prog_pkg
@@ -171,7 +225,11 @@ add_dependencies(prog_pkg_generate_messages prog_pkg_generate_messages_lisp)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Deliver.msg" NAME_WE)
 add_dependencies(prog_pkg_generate_messages_lisp _prog_pkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/srv/IsLoaded.srv" NAME_WE)
+add_dependencies(prog_pkg_generate_messages_lisp _prog_pkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Picker.msg" NAME_WE)
+add_dependencies(prog_pkg_generate_messages_lisp _prog_pkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Arrived.msg" NAME_WE)
 add_dependencies(prog_pkg_generate_messages_lisp _prog_pkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Goal.msg" NAME_WE)
 add_dependencies(prog_pkg_generate_messages_lisp _prog_pkg_generate_messages_check_deps_${_filename})
@@ -192,6 +250,12 @@ _generate_msg_nodejs(prog_pkg
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/prog_pkg
 )
 _generate_msg_nodejs(prog_pkg
+  "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Arrived.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/prog_pkg
+)
+_generate_msg_nodejs(prog_pkg
   "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Picker.msg"
   "${MSG_I_FLAGS}"
   ""
@@ -205,6 +269,12 @@ _generate_msg_nodejs(prog_pkg
 )
 
 ### Generating Services
+_generate_srv_nodejs(prog_pkg
+  "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/srv/IsLoaded.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/prog_pkg
+)
 
 ### Generating Module File
 _generate_module_nodejs(prog_pkg
@@ -220,7 +290,11 @@ add_dependencies(prog_pkg_generate_messages prog_pkg_generate_messages_nodejs)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Deliver.msg" NAME_WE)
 add_dependencies(prog_pkg_generate_messages_nodejs _prog_pkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/srv/IsLoaded.srv" NAME_WE)
+add_dependencies(prog_pkg_generate_messages_nodejs _prog_pkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Picker.msg" NAME_WE)
+add_dependencies(prog_pkg_generate_messages_nodejs _prog_pkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Arrived.msg" NAME_WE)
 add_dependencies(prog_pkg_generate_messages_nodejs _prog_pkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Goal.msg" NAME_WE)
 add_dependencies(prog_pkg_generate_messages_nodejs _prog_pkg_generate_messages_check_deps_${_filename})
@@ -241,6 +315,12 @@ _generate_msg_py(prog_pkg
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/prog_pkg
 )
 _generate_msg_py(prog_pkg
+  "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Arrived.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/prog_pkg
+)
+_generate_msg_py(prog_pkg
   "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Picker.msg"
   "${MSG_I_FLAGS}"
   ""
@@ -254,6 +334,12 @@ _generate_msg_py(prog_pkg
 )
 
 ### Generating Services
+_generate_srv_py(prog_pkg
+  "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/srv/IsLoaded.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/prog_pkg
+)
 
 ### Generating Module File
 _generate_module_py(prog_pkg
@@ -269,7 +355,11 @@ add_dependencies(prog_pkg_generate_messages prog_pkg_generate_messages_py)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Deliver.msg" NAME_WE)
 add_dependencies(prog_pkg_generate_messages_py _prog_pkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/srv/IsLoaded.srv" NAME_WE)
+add_dependencies(prog_pkg_generate_messages_py _prog_pkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Picker.msg" NAME_WE)
+add_dependencies(prog_pkg_generate_messages_py _prog_pkg_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Arrived.msg" NAME_WE)
 add_dependencies(prog_pkg_generate_messages_py _prog_pkg_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Goal.msg" NAME_WE)
 add_dependencies(prog_pkg_generate_messages_py _prog_pkg_generate_messages_check_deps_${_filename})

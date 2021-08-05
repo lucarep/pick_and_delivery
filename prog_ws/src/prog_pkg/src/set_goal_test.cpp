@@ -5,6 +5,7 @@
 #include "prog_pkg/Goal.h"
 #include "prog_pkg/Picker.h"
 #include "prog_pkg/Deliver.h"
+#include "prog_pkg/Arrived.h"
 #include "geometry_msgs/PoseStamped.h"
 #include "tf/tf.h"
 #include "tf2_msgs/TFMessage.h"
@@ -150,6 +151,7 @@ void navigationCallback(const ros::TimerEvent& event)
         {
             ROS_INFO("Arrivato a destinazione");
             cruising = 0;
+            reached_goal = 1;
         }
     }
     
@@ -197,6 +199,8 @@ int main(int argc, char **argv){
 
     tf2_ros::TransformListener tfListener(tfBuffer);
 
+    ros::Publisher pub_arrived = n.advertise<prog_pkg::Arrived>("arrived",1000);
+
     ros::Subscriber sub_tf = n.subscribe("tf",1000,position_CallBack);
 
 
@@ -218,6 +222,16 @@ int main(int argc, char **argv){
             pub.publish(new_goal_msg);
             message_published = 0;
         }
+
+        if (reached_goal == 1)
+        {
+            prog_pkg::Arrived arrived;
+            arrived.reached_goal = 1;   
+            ROS_INFO("Comunico al client che sono arrivato");
+            pub_arrived.publish(arrived);
+            reached_goal = 0;
+        }
+        
 
         ros::spinOnce();
 
