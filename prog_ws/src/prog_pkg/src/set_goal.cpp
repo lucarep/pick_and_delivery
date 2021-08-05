@@ -78,13 +78,6 @@ void SetGoal_Callback(const prog_pkg::Goal& new_goal){
 
 }
 
-void pickerCallback(const prog_pkg::Picker& picker)
-{
-    ROS_INFO("ricevo valore picker x di: [%f]",picker.x);
-    ROS_INFO("ricevo valore picker y di: [%f]",picker.y);
-    ROS_INFO("ricevo valore picker theta di: [%f]",picker.theta);
-}
-
 /*
 * Funzione che verifica la posizione del robot verificando se posso
 * trasformare dal frame della mappa al base_link, se affermativo, 
@@ -175,11 +168,8 @@ int main(int argc, char **argv){
 
     ros::Rate loop_rate(T);
 
-    // ros::Subscriber sub = n.subscribe("New_Goal",1000,SetGoal_Callback);
-    // ros::Subscriber sub_tf = n.subscribe("tf",1000,position_CallBack);
-
-    // ricevo le coordinate del picker
-    ros::Subscriber sub_picker = n.subscribe("picker",1000,pickerCallback);
+    ros::Subscriber sub = n.subscribe("New_Goal",1000,SetGoal_Callback);
+    ros::Subscriber sub_tf = n.subscribe("tf",1000,position_CallBack);
 
     /* Controllo con dei tempi prefissati lo stato della navigazione
     *  del robot
