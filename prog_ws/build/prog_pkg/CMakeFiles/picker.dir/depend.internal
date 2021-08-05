@@ -5,6 +5,9 @@ prog_pkg/CMakeFiles/picker.dir/src/picker.cpp.o
  /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Arrived.h
  /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Deliver.h
  /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Goal.h
+ /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/IsLoaded.h
+ /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/IsLoadedRequest.h
+ /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/IsLoadedResponse.h
  /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Picker.h
  /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/src/picker.cpp
  /opt/ros/melodic/include/geometry_msgs/Point.h

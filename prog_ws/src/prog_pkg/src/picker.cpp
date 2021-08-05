@@ -6,6 +6,7 @@
 #include "prog_pkg/Picker.h"
 #include "prog_pkg/Deliver.h"
 #include "prog_pkg/Arrived.h"
+#include "prog_pkg/IsLoaded.h"
 #include "geometry_msgs/PoseStamped.h"
 #include "tf/tf.h"
 #include "tf2_msgs/TFMessage.h"
@@ -32,10 +33,21 @@ float deliver_theta;
 int message_published = 0;
 int info_published = 0;
 int is_arrived = 0;
+int loaded = 0;
 
-void arrivedCallback(const prog_pkg::Arrived& arrived){
+void arrivedCallback(const prog_pkg::Arrived& arrived)
+{
     ROS_INFO("Eccomi,sono arrivato da te e sono pronto per ricevere il pacco");
     is_arrived = arrived.reached_goal;
+}
+
+bool isLoaded(prog_pkg::IsLoaded::Request& req,prog_pkg::IsLoaded::Response& res)
+{
+    std::cout << ("Comunica al robot con (1) di aver caricato il pacco, altrimenti (0): ");
+    std::cin >> loaded;
+    res.result = loaded;
+    ROS_INFO("Ok, comunico al robot la tua risposta: [%d]", res.result);
+    return true;
 }
 
 
@@ -76,6 +88,8 @@ int main(int argc, char **argv){
     ros::Publisher deliver_pub = n.advertise<prog_pkg::Deliver>("deliver",1000);
 
     ros::Subscriber sub_arrived = n.subscribe("arrived",1000,arrivedCallback);
+
+    ros::ServiceServer service = n.advertiseService("is_loaded",isLoaded);
 
     ros::Rate loop_rate(10);
 
@@ -118,14 +132,17 @@ int main(int argc, char **argv){
         }
         
         ros::spinOnce();
+
+        if (is_arrived == 1)
+        {
+            ROS_INFO("Pronto per comunicare al robot di aver caricato il pacco . .. ...");
+            ros::spin();
+        }
+        
         
         loop_rate.sleep();
         ++count; 
     }
-
-    //ros::ServiceServer service = n.advertiseService("IsLoaded",isLoaded);
-    //ros::spin();
-    ROS_INFO("Questa parte non viene eseguita");
     
     return 0;
 }

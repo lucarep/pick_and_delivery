@@ -101,13 +101,13 @@ import struct
 
 
 class IsLoadedResponse(genpy.Message):
-  _md5sum = "9b05623554ab950ed237d43d45f0b4dd"
+  _md5sum = "034a8e20d6a306665e3a5b340fab3f09"
   _type = "prog_pkg/IsLoadedResponse"
   _has_header = False  # flag to mark the presence of a Header object
-  _full_text = """int64 result
+  _full_text = """int32 result
 """
   __slots__ = ['result']
-  _slot_types = ['int64']
+  _slot_types = ['int32']
 
   def __init__(self, *args, **kwds):
     """
@@ -144,7 +144,7 @@ class IsLoadedResponse(genpy.Message):
     """
     try:
       _x = self.result
-      buff.write(_get_struct_q().pack(_x))
+      buff.write(_get_struct_i().pack(_x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -158,8 +158,8 @@ class IsLoadedResponse(genpy.Message):
     try:
       end = 0
       start = end
-      end += 8
-      (self.result,) = _get_struct_q().unpack(str[start:end])
+      end += 4
+      (self.result,) = _get_struct_i().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -173,7 +173,7 @@ class IsLoadedResponse(genpy.Message):
     """
     try:
       _x = self.result
-      buff.write(_get_struct_q().pack(_x))
+      buff.write(_get_struct_i().pack(_x))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -188,8 +188,8 @@ class IsLoadedResponse(genpy.Message):
     try:
       end = 0
       start = end
-      end += 8
-      (self.result,) = _get_struct_q().unpack(str[start:end])
+      end += 4
+      (self.result,) = _get_struct_i().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -198,14 +198,14 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_q = None
-def _get_struct_q():
-    global _struct_q
-    if _struct_q is None:
-        _struct_q = struct.Struct("<q")
-    return _struct_q
+_struct_i = None
+def _get_struct_i():
+    global _struct_i
+    if _struct_i is None:
+        _struct_i = struct.Struct("<i")
+    return _struct_i
 class IsLoaded(object):
   _type          = 'prog_pkg/IsLoaded'
-  _md5sum = '9b05623554ab950ed237d43d45f0b4dd'
+  _md5sum = '034a8e20d6a306665e3a5b340fab3f09'
   _request_class  = IsLoadedRequest
   _response_class = IsLoadedResponse

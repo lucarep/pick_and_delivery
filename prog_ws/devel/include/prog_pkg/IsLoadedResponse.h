@@ -33,7 +33,7 @@ struct IsLoadedResponse_
 
 
 
-   typedef int64_t _result_type;
+   typedef int32_t _result_type;
   _result_type result;
 
 
@@ -122,12 +122,12 @@ struct MD5Sum< ::prog_pkg::IsLoadedResponse_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "9b05623554ab950ed237d43d45f0b4dd";
+    return "034a8e20d6a306665e3a5b340fab3f09";
   }
 
   static const char* value(const ::prog_pkg::IsLoadedResponse_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x9b05623554ab950eULL;
-  static const uint64_t static_value2 = 0xd237d43d45f0b4ddULL;
+  static const uint64_t static_value1 = 0x034a8e20d6a30666ULL;
+  static const uint64_t static_value2 = 0x5e3a5b340fab3f09ULL;
 };
 
 template<class ContainerAllocator>
@@ -146,7 +146,7 @@ struct Definition< ::prog_pkg::IsLoadedResponse_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "int64 result\n"
+    return "int32 result\n"
 ;
   }
 
@@ -185,7 +185,7 @@ struct Printer< ::prog_pkg::IsLoadedResponse_<ContainerAllocator> >
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::prog_pkg::IsLoadedResponse_<ContainerAllocator>& v)
   {
     s << indent << "result: ";
-    Printer<int64_t>::stream(s, indent + "  ", v.result);
+    Printer<int32_t>::stream(s, indent + "  ", v.result);
   }
 };
 

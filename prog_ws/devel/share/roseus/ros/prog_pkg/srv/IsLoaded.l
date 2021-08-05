@@ -63,41 +63,21 @@
   (:serialization-length
    ()
    (+
-    ;; int64 _result
-    8
+    ;; int32 _result
+    4
     ))
   (:serialize
    (&optional strm)
    (let ((s (if strm strm
               (make-string-output-stream (send self :serialization-length)))))
-     ;; int64 _result
-#+(or :alpha :irix6 :x86_64)
-       (progn (sys::poke _result (send s :buffer) (send s :count) :long) (incf (stream-count s) 8))
-#-(or :alpha :irix6 :x86_64)
-       (cond ((and (class _result) (= (length (_result . bv)) 2)) ;; bignum
-              (write-long (ash (elt (_result . bv) 0) 0) s)
-              (write-long (ash (elt (_result . bv) 1) -1) s))
-             ((and (class _result) (= (length (_result . bv)) 1)) ;; big1
-              (write-long (elt (_result . bv) 0) s)
-              (write-long (if (>= _result 0) 0 #xffffffff) s))
-             (t                                         ;; integer
-              (write-long _result s)(write-long (if (>= _result 0) 0 #xffffffff) s)))
+     ;; int32 _result
+       (write-long _result s)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
-   ;; int64 _result
-#+(or :alpha :irix6 :x86_64)
-      (setf _result (prog1 (sys::peek buf ptr- :long) (incf ptr- 8)))
-#-(or :alpha :irix6 :x86_64)
-      (setf _result (let ((b0 (prog1 (sys::peek buf ptr- :integer) (incf ptr- 4)))
-                  (b1 (prog1 (sys::peek buf ptr- :integer) (incf ptr- 4))))
-              (cond ((= b1 -1) b0)
-                     ((and (= b1  0)
-                           (<= lisp::most-negative-fixnum b0 lisp::most-positive-fixnum))
-                      b0)
-                    ((= b1  0) (make-instance bignum :size 1 :bv (integer-vector b0)))
-                    (t (make-instance bignum :size 2 :bv (integer-vector b0 (ash b1 1)))))))
+   ;; int32 _result
+     (setq _result (sys::peek buf ptr- :integer)) (incf ptr- 4)
    ;;
    self)
   )
@@ -106,7 +86,7 @@
   :super ros::object
   :slots ())
 
-(setf (get prog_pkg::IsLoaded :md5sum-) "9b05623554ab950ed237d43d45f0b4dd")
+(setf (get prog_pkg::IsLoaded :md5sum-) "034a8e20d6a306665e3a5b340fab3f09")
 (setf (get prog_pkg::IsLoaded :datatype-) "prog_pkg/IsLoaded")
 (setf (get prog_pkg::IsLoaded :request) prog_pkg::IsLoadedRequest)
 (setf (get prog_pkg::IsLoaded :response) prog_pkg::IsLoadedResponse)
@@ -114,22 +94,22 @@
 (defmethod prog_pkg::IsLoadedRequest
   (:response () (instance prog_pkg::IsLoadedResponse :init)))
 
-(setf (get prog_pkg::IsLoadedRequest :md5sum-) "9b05623554ab950ed237d43d45f0b4dd")
+(setf (get prog_pkg::IsLoadedRequest :md5sum-) "034a8e20d6a306665e3a5b340fab3f09")
 (setf (get prog_pkg::IsLoadedRequest :datatype-) "prog_pkg/IsLoadedRequest")
 (setf (get prog_pkg::IsLoadedRequest :definition-)
       "---
-int64 result
+int32 result
 ")
 
-(setf (get prog_pkg::IsLoadedResponse :md5sum-) "9b05623554ab950ed237d43d45f0b4dd")
+(setf (get prog_pkg::IsLoadedResponse :md5sum-) "034a8e20d6a306665e3a5b340fab3f09")
 (setf (get prog_pkg::IsLoadedResponse :datatype-) "prog_pkg/IsLoadedResponse")
 (setf (get prog_pkg::IsLoadedResponse :definition-)
       "---
-int64 result
+int32 result
 ")
 
 
 
-(provide :prog_pkg/IsLoaded "9b05623554ab950ed237d43d45f0b4dd")
+(provide :prog_pkg/IsLoaded "034a8e20d6a306665e3a5b340fab3f09")
 
 

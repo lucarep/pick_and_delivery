@@ -4,6 +4,9 @@
 prog_pkg/CMakeFiles/set_goal_test.dir/src/set_goal_test.cpp.o: /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Arrived.h
 prog_pkg/CMakeFiles/set_goal_test.dir/src/set_goal_test.cpp.o: /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Deliver.h
 prog_pkg/CMakeFiles/set_goal_test.dir/src/set_goal_test.cpp.o: /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Goal.h
+prog_pkg/CMakeFiles/set_goal_test.dir/src/set_goal_test.cpp.o: /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/IsLoaded.h
+prog_pkg/CMakeFiles/set_goal_test.dir/src/set_goal_test.cpp.o: /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/IsLoadedRequest.h
+prog_pkg/CMakeFiles/set_goal_test.dir/src/set_goal_test.cpp.o: /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/IsLoadedResponse.h
 prog_pkg/CMakeFiles/set_goal_test.dir/src/set_goal_test.cpp.o: /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Picker.h
 prog_pkg/CMakeFiles/set_goal_test.dir/src/set_goal_test.cpp.o: /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/src/set_goal_test.cpp
 prog_pkg/CMakeFiles/set_goal_test.dir/src/set_goal_test.cpp.o: /opt/ros/melodic/include/geometry_msgs/Point.h

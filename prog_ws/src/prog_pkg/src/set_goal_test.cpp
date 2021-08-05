@@ -6,6 +6,7 @@
 #include "prog_pkg/Picker.h"
 #include "prog_pkg/Deliver.h"
 #include "prog_pkg/Arrived.h"
+#include "prog_pkg/IsLoaded.h"
 #include "geometry_msgs/PoseStamped.h"
 #include "tf/tf.h"
 #include "tf2_msgs/TFMessage.h"
@@ -22,6 +23,7 @@ int info2_published = 0;
 int pick_position_set = 0;
 int cruising = 0;
 int reached_goal = 0;
+int loaded_parcel = 0;
 
 // Vettori di posizione
 std::vector<float> picker_position(2,0);
@@ -203,6 +205,10 @@ int main(int argc, char **argv){
 
     ros::Subscriber sub_tf = n.subscribe("tf",1000,position_CallBack);
 
+    ros::ServiceClient client = n.serviceClient<prog_pkg::IsLoaded>("is_loaded");
+
+    prog_pkg::IsLoaded srv;
+
 
     /* 
     *  Controllo con dei tempi prefissati lo stato della navigazione
@@ -229,6 +235,17 @@ int main(int argc, char **argv){
             arrived.reached_goal = 1;   
             ROS_INFO("Comunico al client che sono arrivato");
             pub_arrived.publish(arrived);
+            if (client.call(srv))
+            {
+                loaded_parcel = srv.response.result;
+                ROS_INFO("L'utente ha caricato il pacco: [%d]", loaded_parcel);
+            }
+            else
+            {
+                ROS_ERROR("Impossibile comunicare con il client");
+                return 1;
+            }
+            
             reached_goal = 0;
         }
         

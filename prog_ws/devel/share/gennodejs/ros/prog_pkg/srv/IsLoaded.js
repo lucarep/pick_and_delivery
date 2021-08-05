@@ -88,7 +88,7 @@ class IsLoadedResponse {
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type IsLoadedResponse
     // Serialize message field [result]
-    bufferOffset = _serializer.int64(obj.result, buffer, bufferOffset);
+    bufferOffset = _serializer.int32(obj.result, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -97,12 +97,12 @@ class IsLoadedResponse {
     let len;
     let data = new IsLoadedResponse(null);
     // Deserialize message field [result]
-    data.result = _deserializer.int64(buffer, bufferOffset);
+    data.result = _deserializer.int32(buffer, bufferOffset);
     return data;
   }
 
   static getMessageSize(object) {
-    return 8;
+    return 4;
   }
 
   static datatype() {
@@ -112,13 +112,13 @@ class IsLoadedResponse {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '9b05623554ab950ed237d43d45f0b4dd';
+    return '034a8e20d6a306665e3a5b340fab3f09';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    int64 result
+    int32 result
     
     `;
   }
@@ -143,6 +143,6 @@ class IsLoadedResponse {
 module.exports = {
   Request: IsLoadedRequest,
   Response: IsLoadedResponse,
-  md5sum() { return '9b05623554ab950ed237d43d45f0b4dd'; },
+  md5sum() { return '034a8e20d6a306665e3a5b340fab3f09'; },
   datatype() { return 'prog_pkg/IsLoaded'; }
 };

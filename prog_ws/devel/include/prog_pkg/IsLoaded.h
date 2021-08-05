@@ -40,7 +40,7 @@ template<>
 struct MD5Sum< ::prog_pkg::IsLoaded > {
   static const char* value()
   {
-    return "9b05623554ab950ed237d43d45f0b4dd";
+    return "034a8e20d6a306665e3a5b340fab3f09";
   }
 
   static const char* value(const ::prog_pkg::IsLoaded&) { return value(); }

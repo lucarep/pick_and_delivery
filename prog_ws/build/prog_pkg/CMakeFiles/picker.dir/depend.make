@@ -4,6 +4,9 @@
 prog_pkg/CMakeFiles/picker.dir/src/picker.cpp.o: /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Arrived.h
 prog_pkg/CMakeFiles/picker.dir/src/picker.cpp.o: /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Deliver.h
 prog_pkg/CMakeFiles/picker.dir/src/picker.cpp.o: /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Goal.h
+prog_pkg/CMakeFiles/picker.dir/src/picker.cpp.o: /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/IsLoaded.h
+prog_pkg/CMakeFiles/picker.dir/src/picker.cpp.o: /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/IsLoadedRequest.h
+prog_pkg/CMakeFiles/picker.dir/src/picker.cpp.o: /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/IsLoadedResponse.h
 prog_pkg/CMakeFiles/picker.dir/src/picker.cpp.o: /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Picker.h
 prog_pkg/CMakeFiles/picker.dir/src/picker.cpp.o: /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/src/picker.cpp
 prog_pkg/CMakeFiles/picker.dir/src/picker.cpp.o: /opt/ros/melodic/include/geometry_msgs/Point.h
