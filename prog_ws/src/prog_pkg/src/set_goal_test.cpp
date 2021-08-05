@@ -19,11 +19,11 @@
 // Flag di controllo
 int message_published = 0;
 int info_published = 0;
-int info2_published = 0;
 int pick_position_set = 0;
 int cruising = 0;
 int reached_goal = 0;
 int loaded_parcel = 0;
+int is_asked = 0;
 
 // Vettori di posizione
 std::vector<float> picker_position(2,0);
@@ -86,23 +86,6 @@ void SetGoal_Callback(const prog_pkg::Picker& new_goal){
     picker_position[0] = new_goal_msg.pose.position.x;
     picker_position[1] = new_goal_msg.pose.position.y;
 
-}
-
-/*
-* Funzione che prende in input un messaggio di deliver con le coordinate
-* e setta un nuovo goal
-*/
-
-void deliverCallback(const prog_pkg::Deliver& deliver)
-{
-    if (info2_published == 0)
-    {
-        ROS_INFO("ricevo valore deliver x di: [%f]",deliver.x);
-        ROS_INFO("ricevo valore deliver y di: [%f]",deliver.y);
-        ROS_INFO("ricevo valore deliver theta di: [%f]",deliver.theta);
-        info2_published++;
-    }
-    
 }
 
 /*
@@ -195,8 +178,6 @@ int main(int argc, char **argv){
 
     ros::Subscriber sub_picker = n.subscribe("picker",1000,SetGoal_Callback);
 
-    ros::Subscriber sub_deliver = n.subscribe("deliver",1000,deliverCallback);
-
     ros::Publisher pub = n.advertise<geometry_msgs::PoseStamped>("/move_base_simple/goal",1000);
 
     tf2_ros::TransformListener tfListener(tfBuffer);
@@ -229,23 +210,25 @@ int main(int argc, char **argv){
             message_published = 0;
         }
 
-        if (reached_goal == 1)
+        if (reached_goal == 1 && is_asked == 0)
         {
             prog_pkg::Arrived arrived;
             arrived.reached_goal = 1;   
             ROS_INFO("Comunico al client che sono arrivato");
             pub_arrived.publish(arrived);
-            if (client.call(srv))
-            {
-                loaded_parcel = srv.response.result;
-                ROS_INFO("L'utente ha caricato il pacco: [%d]", loaded_parcel);
-            }
-            else
-            {
-                ROS_ERROR("Impossibile comunicare con il client");
-                return 1;
-            }
             
+                if (client.call(srv))
+                {
+                    loaded_parcel = srv.response.result;
+                    ROS_INFO("L'utente ha caricato il pacco: [%d]", loaded_parcel);
+                }
+                else
+                {
+                    ROS_ERROR("Impossibile comunicare con il client");
+                    return 1;
+                }
+                
+            is_asked = 1;
             reached_goal = 0;
         }
         

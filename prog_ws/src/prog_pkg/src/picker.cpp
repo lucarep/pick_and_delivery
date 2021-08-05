@@ -22,15 +22,11 @@ float picker_x;
 float picker_y;
 float picker_theta;
 
-// Posizione per consegnare il pacco
-
-float deliver_x;
-float deliver_y;
-float deliver_theta;
-
 // Flag di controllo
 
 int message_published = 0;
+int not_asked = 0;
+int mex_published = 0;
 int info_published = 0;
 int is_arrived = 0;
 int loaded = 0;
@@ -70,13 +66,6 @@ int main(int argc, char **argv){
     std::cin >> picker_y;
     std::cout << ("theta: ");
     std::cin >> picker_theta;
-    std::cout << ("Benissimo, adesso dimmi dove vuoi che consegni il tuo pacco . .. ...") << '\n';
-    std::cout << ("x: ");
-    std::cin >> deliver_x;
-    std::cout << ("y: ");
-    std::cin >> deliver_y;
-    std::cout << ("theta: ");
-    std::cin >> deliver_theta;
     std::cout << ("E' tutto ok, mi metto subito in viaggio verso di te per prendere il pacco") << '\n';
 
     ros::init(argc,argv,"picker");
@@ -108,26 +97,16 @@ int main(int argc, char **argv){
             picker.y = picker_y;
             picker.theta = picker_theta;
 
-            prog_pkg::Deliver deliver;
-            deliver.x = deliver_x;
-            deliver.y = deliver_y;
-            deliver.theta = deliver_theta;
-
             if (info_published == 0)
             {
                 ROS_INFO("pubblico valore picker x di: [%f]",picker.x);
                 ROS_INFO("pubblico valore picker y di: [%f]",picker.y);
                 ROS_INFO("pubblico valore picker theta di: [%f]",picker.theta);
-                std::cout << ("----------------------------------------") << '\n';
-                ROS_INFO("pubblico valore deliver x di: [%f]",deliver.x);
-                ROS_INFO("pubblico valore deliver y di: [%f]",deliver.y);
-                ROS_INFO("pubblico valore deliver theta di: [%f]",deliver.theta);
                 
                 info_published++;
             }
             
             picker_pub.publish(picker);
-            deliver_pub.publish(deliver);
             message_published++;
         }
         
@@ -135,8 +114,41 @@ int main(int argc, char **argv){
 
         if (is_arrived == 1)
         {
-            ROS_INFO("Pronto per comunicare al robot di aver caricato il pacco . .. ...");
-            ros::spin();
+            if (not_asked == 0)
+            {
+                ROS_INFO("Pronto per comunicare al robot di aver caricato il pacco . .. ...");
+                std::cout << ("Ok, ho capito, dimmi dove vuoi che consegni il pacco") << '\n';
+                std::cout << ("x: ");
+                std::cin >> picker_x;
+                std::cout << ("y: ");
+                std::cin >> picker_y;
+                std::cout << ("theta: ");
+                std::cin >> picker_theta;
+                std::cout << ("Sono pronto a mettermi in viaggio per consegnare il pacco al destinatario") << '\n';
+                not_asked = 1;
+            }
+            
+            
+
+            if(mex_published < 10){
+
+            prog_pkg::Picker picker;
+            picker.x = picker_x;
+            picker.y = picker_y;
+            picker.theta = picker_theta;
+
+            if (info_published == 0)
+            {
+                ROS_INFO("pubblico valore picker x di: [%f]",picker.x);
+                ROS_INFO("pubblico valore picker y di: [%f]",picker.y);
+                ROS_INFO("pubblico valore picker theta di: [%f]",picker.theta);
+                
+                info_published++;
+            }
+            
+            picker_pub.publish(picker);
+            mex_published++;
+            }
         }
         
         
