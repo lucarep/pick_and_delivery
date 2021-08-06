@@ -147,6 +147,10 @@ add_executable(picker src/picker.cpp)
 target_link_libraries(picker ${catkin_LIBRARIES})
 add_dependencies(picker prog_pkg_generate_messages_cpp)
 
+add_executable(deliver src/deliver.cpp)
+target_link_libraries(deliver ${catkin_LIBRARIES})
+add_dependencies(deliver prog_pkg_generate_messages_cpp)
+
 add_executable(set_goal_test src/set_goal_test.cpp)
 target_link_libraries(set_goal_test ${catkin_LIBRARIES})
 add_dependencies(set_goal_test prog_pkg_generate_messages_cpp)

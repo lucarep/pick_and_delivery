@@ -543,6 +543,21 @@ actionlib_msgs_generate_messages_cpp/fast:
 .PHONY : actionlib_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
+prog_pkg/CMakeFiles/deliver.dir/rule:
+	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f CMakeFiles/Makefile2 prog_pkg/CMakeFiles/deliver.dir/rule
+.PHONY : prog_pkg/CMakeFiles/deliver.dir/rule
+
+# Convenience name for target.
+deliver: prog_pkg/CMakeFiles/deliver.dir/rule
+
+.PHONY : deliver
+
+# fast build rule for target.
+deliver/fast:
+	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f prog_pkg/CMakeFiles/deliver.dir/build.make prog_pkg/CMakeFiles/deliver.dir/build
+.PHONY : deliver/fast
+
+# Convenience name for target.
 prog_pkg/CMakeFiles/actionlib_generate_messages_cpp.dir/rule:
 	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f CMakeFiles/Makefile2 prog_pkg/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
 .PHONY : prog_pkg/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
@@ -977,6 +992,33 @@ actionlib_generate_messages_py/fast:
 	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f prog_pkg/CMakeFiles/actionlib_generate_messages_py.dir/build.make prog_pkg/CMakeFiles/actionlib_generate_messages_py.dir/build
 .PHONY : actionlib_generate_messages_py/fast
 
+src/deliver.o: src/deliver.cpp.o
+
+.PHONY : src/deliver.o
+
+# target to build an object file
+src/deliver.cpp.o:
+	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f prog_pkg/CMakeFiles/deliver.dir/build.make prog_pkg/CMakeFiles/deliver.dir/src/deliver.cpp.o
+.PHONY : src/deliver.cpp.o
+
+src/deliver.i: src/deliver.cpp.i
+
+.PHONY : src/deliver.i
+
+# target to preprocess a source file
+src/deliver.cpp.i:
+	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f prog_pkg/CMakeFiles/deliver.dir/build.make prog_pkg/CMakeFiles/deliver.dir/src/deliver.cpp.i
+.PHONY : src/deliver.cpp.i
+
+src/deliver.s: src/deliver.cpp.s
+
+.PHONY : src/deliver.s
+
+# target to generate assembly for a file
+src/deliver.cpp.s:
+	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f prog_pkg/CMakeFiles/deliver.dir/build.make prog_pkg/CMakeFiles/deliver.dir/src/deliver.cpp.s
+.PHONY : src/deliver.cpp.s
+
 src/picker.o: src/picker.cpp.o
 
 .PHONY : src/picker.o
@@ -1094,6 +1136,7 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_eus"
 	@echo "... actionlib_msgs_generate_messages_cpp"
 	@echo "... rebuild_cache"
+	@echo "... deliver"
 	@echo "... actionlib_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... std_msgs_generate_messages_lisp"
@@ -1125,6 +1168,9 @@ help:
 	@echo "... test"
 	@echo "... actionlib_generate_messages_nodejs"
 	@echo "... actionlib_generate_messages_py"
+	@echo "... src/deliver.o"
+	@echo "... src/deliver.i"
+	@echo "... src/deliver.s"
 	@echo "... src/picker.o"
 	@echo "... src/picker.i"
 	@echo "... src/picker.s"

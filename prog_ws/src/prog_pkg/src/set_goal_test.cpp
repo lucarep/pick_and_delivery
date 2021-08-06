@@ -23,7 +23,9 @@ int pick_position_set = 0;
 int cruising = 0;
 int reached_goal = 0;
 int loaded_parcel = 0;
+int picked_parcel = 0;
 int is_asked = 0;
+int is_delivered = 0;
 
 // Vettori di posizione
 std::vector<float> picker_position(2,0);
@@ -184,11 +186,17 @@ int main(int argc, char **argv){
 
     ros::Publisher pub_arrived = n.advertise<prog_pkg::Arrived>("arrived",1000);
 
+    ros::Publisher pub_delivery = n.advertise<prog_pkg::Arrived>("delivered",1000); 
+
     ros::Subscriber sub_tf = n.subscribe("tf",1000,position_CallBack);
 
     ros::ServiceClient client = n.serviceClient<prog_pkg::IsLoaded>("is_loaded");
 
+    ros::ServiceClient del_client = n.serviceClient<prog_pkg::IsLoaded>("is_picked_up");
+
     prog_pkg::IsLoaded srv;
+
+    prog_pkg::IsLoaded del_srv;
 
 
     /* 
@@ -231,6 +239,28 @@ int main(int argc, char **argv){
             is_asked = 1;
             reached_goal = 0;
         }
+        else if (reached_goal == 1 && is_delivered == 0)
+        {
+            prog_pkg::Arrived del_notification;
+            del_notification.reached_goal = 1;
+            ROS_INFO("Comunico al deliver che sono arrivato");
+            pub_delivery.publish(del_notification);
+
+            if (del_client.call(del_srv))
+            {
+                picked_parcel = srv.response.result;
+                ROS_INFO("L'utente ha ritirato il pacco: [%d]", loaded_parcel);
+            }
+            else
+            {
+                ROS_ERROR("Impossibile comunicare con il client");
+                return 1;
+            }
+            
+            is_delivered = 1;
+            reached_goal = 0;
+        }
+        
         
 
         ros::spinOnce();
