@@ -188,6 +188,8 @@ int main(int argc, char **argv){
 
     ros::Publisher pub_delivery = n.advertise<prog_pkg::Arrived>("delivered",1000); 
 
+    ros::Publisher pub_picked = n.advertise<prog_pkg::Arrived>("picked",1000);
+
     ros::Subscriber sub_tf = n.subscribe("tf",1000,position_CallBack);
 
     ros::ServiceClient client = n.serviceClient<prog_pkg::IsLoaded>("is_loaded");
@@ -260,9 +262,17 @@ int main(int argc, char **argv){
             is_delivered = 1;
             reached_goal = 0;
         }
-        
-        
 
+        if (picked_parcel == 1)
+        {
+            prog_pkg::Arrived picked_notification;
+            picked_notification.reached_goal = 1;
+            ROS_INFO("Comunico al client che ho consegnato con successo il pacco");
+            pub_picked.publish(picked_notification);
+            picked_parcel = 0;
+
+        }
+        
         ros::spinOnce();
 
         loop_rate.sleep();

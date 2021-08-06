@@ -65,7 +65,7 @@ int main(int argc, char **argv){
     {
         if (is_delivered == 1)
         {
-            ROS_INFO("Ok, ora comunicami quando hai ritirato il pacco");
+            // ROS_INFO("Ok, ora comunicami quando hai ritirato il pacco");
             is_delivered = 0;
         }
         

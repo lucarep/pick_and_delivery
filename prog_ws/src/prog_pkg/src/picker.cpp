@@ -37,6 +37,10 @@ void arrivedCallback(const prog_pkg::Arrived& arrived)
     is_arrived = arrived.reached_goal;
 }
 
+void pickedCallback(const prog_pkg::Arrived& pickedCallback){
+    ROS_INFO("La spedizione e' avvenuta con successo e il destinatario ha ritirato il pacco");
+}
+
 bool isLoaded(prog_pkg::IsLoaded::Request& req,prog_pkg::IsLoaded::Response& res)
 {
     std::cout << ("Comunica al robot con (1) di aver caricato il pacco, altrimenti (0): ");
@@ -77,6 +81,8 @@ int main(int argc, char **argv){
     ros::Publisher deliver_pub = n.advertise<prog_pkg::Deliver>("deliver",1000);
 
     ros::Subscriber sub_arrived = n.subscribe("arrived",1000,arrivedCallback);
+
+    ros::Subscriber sub_picked = n.subscribe("picked",1000,pickedCallback);
 
     ros::ServiceServer service = n.advertiseService("is_loaded",isLoaded);
 
@@ -125,6 +131,7 @@ int main(int argc, char **argv){
                 std::cout << ("theta: ");
                 std::cin >> picker_theta;
                 std::cout << ("Sono pronto a mettermi in viaggio per consegnare il pacco al destinatario") << '\n';
+                std::cout << ("Riceverai una notifica una volta consegnato il pacco") << '\n';
                 not_asked = 1;
             }
             
