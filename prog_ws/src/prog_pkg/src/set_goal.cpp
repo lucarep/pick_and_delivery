@@ -5,6 +5,8 @@
 #include "prog_pkg/Goal.h"
 #include "prog_pkg/Picker.h"
 #include "prog_pkg/Deliver.h"
+#include "prog_pkg/Arrived.h"
+#include "prog_pkg/IsLoaded.h"
 #include "geometry_msgs/PoseStamped.h"
 #include "tf/tf.h"
 #include "tf2_msgs/TFMessage.h"
@@ -14,22 +16,32 @@
 #include "nav_msgs/Odometry.h"
 #include "sensor_msgs/LaserScan.h"
 
-// Dichiarazione variabili globali
+// Flag di controllo
+int message_published = 0;
+int info_published = 0;
+int pick_position_set = 0;
+int cruising = 0;
+int reached_goal = 0;
+int loaded_parcel = 0;
+int picked_parcel = 0;
+int is_asked = 0;
+int is_delivered = 0;
 
-std::vector<float> target_position(2,0);
+// Vettori di posizione
+std::vector<float> picker_position(2,0);
+std::vector<float> delivery_position(2,0);
 std::vector<float> old_position(2,0);
 std::vector<float> current_position(2,0);
 
+// Altre variabili globali
+
 geometry_msgs::PoseStamped new_goal_msg;
 tf2_ros::Buffer tfBuffer;
-
 size_t n = 10;
-int message_published = 0;
-int cruising = 0;
 float T = 1;
 
 /*
-* Funzione che prende in input un messaggio con le coordinate
+* Funzione subscriber che prende in input un messaggio picker con le coordinate
 * e setta un nuovo goal
 */
 
@@ -73,12 +85,10 @@ void SetGoal_Callback(const prog_pkg::Picker& new_goal){
 
     // Salvare le coordinate del goal
 
-    target_position[0] = new_goal_msg.pose.position.x;
-    target_position[1] = new_goal_msg.pose.position.y;
+    picker_position[0] = new_goal_msg.pose.position.x;
+    picker_position[1] = new_goal_msg.pose.position.y;
 
 }
-
-
 
 /*
 * Funzione che verifica la posizione del robot verificando se posso
@@ -105,13 +115,18 @@ void position_CallBack(const tf2_msgs::TFMessage& tf)
     
 }
 
-void check1_CallBack(const ros::TimerEvent& event)
+/*
+* Funzione timer che controlla se il robot si muove correttamente 
+* e l'avvenuto raggiungimento del goal
+*/
+
+void navigationCallback(const ros::TimerEvent& event)
 {
     // eseguo il controllo solo se mi muovo
 
     if (cruising != 0)
     {
-        ROS_INFO("Check if i'm moving");
+        ROS_INFO("Controllo se mi muovo");
         float distance;
         distance = sqrt(pow(current_position[0] - old_position[0],2) + pow(current_position[1] - old_position[1],2));
 
@@ -122,30 +137,37 @@ void check1_CallBack(const ros::TimerEvent& event)
 
         if (distance < 0.8)
         {
-            ROS_INFO("I'm stuck!");
+            ROS_INFO("Sono bloccato!");
         }
-        if (sqrt(pow(current_position[0] - target_position[0],2) + pow(current_position[1] - target_position[1],2)) < 1.5)
+        if (sqrt(pow(current_position[0] - picker_position[0],2) + pow(current_position[1] - picker_position[1],2)) < 1.5)
         {
-            ROS_INFO("Arrived to the goal");
+            ROS_INFO("Arrivato a destinazione");
             cruising = 0;
+            reached_goal = 1;
         }
     }
     
 }
 
-void check2_CallBack(const ros::TimerEvent& event)
+/*
+* Funzione timer che controlla se il robot è in movimento
+* da troppo tempo ed eventualmente se impossibile
+* raggiungere l'obiettivo
+*/
+
+void elapsedCallback(const ros::TimerEvent& event)
 {
     // eseguo il controllo solo se mi muovo
 
     if (cruising != 0)
     {
-        ROS_INFO("Checking if it has been passed too much time...");
+        ROS_INFO("Controllo se è passato troppo tempo");
         float distance;
-        distance = sqrt(pow(current_position[0] - target_position[0],2) + pow(current_position[1] - target_position[1],2));
+        distance = sqrt(pow(current_position[0] - picker_position[0],2) + pow(current_position[1] - picker_position[1],2));
 
         if (distance > 0.5)
         {
-            ROS_INFO("TIMEOUT: Goal point could not be reached!");
+            ROS_INFO("TIMEOUT: Non posso raggiungere l'obiettivo");
         }
         
     }
@@ -160,26 +182,43 @@ int main(int argc, char **argv){
  ___/ /  __/ /_   / /_/ / /_/ / /_/ / /  
 /____/\___/\__/   \____/\____/\__,_/_/                                            
 )" << '\n';
-    
+
     ros::init(argc,argv,"set_goal");
 
     ros::NodeHandle n;
+
+    ros::Rate loop_rate(T);
+
+    ros::Subscriber sub_picker = n.subscribe("picker",1000,SetGoal_Callback);
+
     ros::Publisher pub = n.advertise<geometry_msgs::PoseStamped>("/move_base_simple/goal",1000);
 
     tf2_ros::TransformListener tfListener(tfBuffer);
 
-    ros::Rate loop_rate(T);
+    ros::Publisher pub_arrived = n.advertise<prog_pkg::Arrived>("arrived",1000);
 
-    // ros::Subscriber sub = n.subscribe("New_Goal",1000,SetGoal_Callback);
-    ros::Subscriber sub_picker = n.subscribe("picker",1000,SetGoal_Callback);
+    ros::Publisher pub_delivery = n.advertise<prog_pkg::Arrived>("delivered",1000); 
+
+    ros::Publisher pub_picked = n.advertise<prog_pkg::Arrived>("picked",1000);
+
     ros::Subscriber sub_tf = n.subscribe("tf",1000,position_CallBack);
 
-    /* Controllo con dei tempi prefissati lo stato della navigazione
+    ros::ServiceClient client = n.serviceClient<prog_pkg::IsLoaded>("is_loaded");
+
+    ros::ServiceClient del_client = n.serviceClient<prog_pkg::IsLoaded>("is_picked_up");
+
+    prog_pkg::IsLoaded srv;
+
+    prog_pkg::IsLoaded del_srv;
+
+
+    /* 
+    *  Controllo con dei tempi prefissati lo stato della navigazione
     *  del robot
     */
 
-    ros::Timer timer1 = n.createTimer(ros::Duration(0.5), check1_CallBack);
-    ros::Timer timer2 = n.createTimer(ros::Duration(50), check2_CallBack);
+    ros::Timer check_navigation = n.createTimer(ros::Duration(0.5), navigationCallback);
+    ros::Timer elapsed_time = n.createTimer(ros::Duration(50), elapsedCallback);
 
     int count = 0;
     while (ros::ok())
@@ -192,14 +231,88 @@ int main(int argc, char **argv){
             message_published = 0;
         }
 
+        /*
+        * In questa sezione viene controllato se il robot è arrivato in posizione del picker
+        * per ricevere il pacco, in caso non sia stato già chiesto il robot
+        * comunica al picker con un service se ha caricato il pacco
+        */
+
+        if (reached_goal == 1 && is_asked == 0)
+        {
+            prog_pkg::Arrived arrived;
+            arrived.reached_goal = 1;   
+            ROS_INFO("Comunico al client che sono arrivato");
+            pub_arrived.publish(arrived);
+            
+                if (client.call(srv))
+                {
+                    loaded_parcel = srv.response.result;
+                    ROS_INFO("L'utente ha caricato il pacco: [%d]", loaded_parcel);
+                }
+                else
+                {
+                    ROS_ERROR("Impossibile comunicare con il client");
+                    return 1;
+                }
+                
+            is_asked = 1;
+            reached_goal = 0;
+        }
+
+        /*
+        * In questa sezione viene controllato se il robot è arrivato in posizione di consegna
+        * per lasciare il pacco, in caso non sia stato già chiesto il robot
+        * comunica al deliver con un service se ha preso il pacco
+        */
+
+        else if (reached_goal == 1 && is_delivered == 0)
+        {
+            prog_pkg::Arrived del_notification;
+            del_notification.reached_goal = 1;
+            ROS_INFO("Comunico al deliver che sono arrivato");
+            pub_delivery.publish(del_notification);
+
+            if (del_client.call(del_srv))
+            {
+                picked_parcel = srv.response.result;
+                ROS_INFO("L'utente ha ritirato il pacco: [%d]", loaded_parcel);
+            }
+            else
+            {
+                ROS_ERROR("Impossibile comunicare con il client");
+                return 1;
+            }
+            
+            is_delivered = 1;
+            reached_goal = 0;
+        }
+
+        /*
+        * In questa sezione in caso di risposta affermativa dal deliver, il robot
+        * comunica al picker che il pacco è stato consegnato con successo
+        */
+
+        if (picked_parcel == 1)
+        {
+            prog_pkg::Arrived picked_notification;
+            picked_notification.reached_goal = 1;
+            ROS_INFO("Comunico al client che ho consegnato con successo il pacco");
+            pub_picked.publish(picked_notification);
+            picked_parcel = 0;
+
+        }
+        
         ros::spinOnce();
 
         loop_rate.sleep();
 
         ++count;
     }
+    
 
     ros::spin();
     
+
     return 0;
+
 }

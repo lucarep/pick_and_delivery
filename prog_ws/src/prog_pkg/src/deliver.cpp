@@ -16,14 +16,26 @@
 #include "nav_msgs/Odometry.h"
 #include "sensor_msgs/LaserScan.h"
 
+// Flag di controllo
+
 int is_delivered = 0;
 int picked = 0;
+
+/*
+* Funzione subscriber che comunica l'arrivo del robot
+* nella posizione di consegna finale
+*/
 
 void deliveredCallback(const prog_pkg::Arrived& delivered){
     ROS_INFO("Eccomi sono arrivato da te e pronto per consegnare il pacco");
     is_delivered = delivered.reached_goal;
 
 }
+
+/*
+* Funzione service che riceve una richiesta dal robot 
+* di comunicare l'avvenuto ritiro del pacco
+*/
 
 bool isPickedUp(prog_pkg::IsLoaded::Request& req,prog_pkg::IsLoaded::Response& res)
 {
@@ -45,6 +57,8 @@ int main(int argc, char **argv){
 /_____/\___/_/_/ |___/\___/_/    )" << ('\n');
 
 
+    // Greetings
+
     std::cout << ('\n');
 
     std::cout << ("Ciao, benvenuto nel servizio di pick and delivery del DIAG") << ('\n');
@@ -54,7 +68,11 @@ int main(int argc, char **argv){
 
     ros::NodeHandle n;
 
+    // Subscriber
+
     ros::Subscriber sub_delivered = n.subscribe("delivered",1000,deliveredCallback);
+
+    // Service
 
     ros::ServiceServer service = n.advertiseService("is_picked_up",isPickedUp);
 

@@ -818,19 +818,6 @@ geometry_msgs_generate_messages_lisp/fast:
 .PHONY : geometry_msgs_generate_messages_lisp/fast
 
 #=============================================================================
-# Target rules for targets named set_goal_test
-
-# Build rule for target.
-set_goal_test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 set_goal_test
-.PHONY : set_goal_test
-
-# fast build rule for target.
-set_goal_test/fast:
-	$(MAKE) -f prog_pkg/CMakeFiles/set_goal_test.dir/build.make prog_pkg/CMakeFiles/set_goal_test.dir/build
-.PHONY : set_goal_test/fast
-
-#=============================================================================
 # Target rules for targets named geometry_msgs_generate_messages_py
 
 # Build rule for target.
@@ -1062,7 +1049,6 @@ help:
 	@echo "... geometry_msgs_generate_messages_eus"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_lisp"
-	@echo "... set_goal_test"
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... tf2_msgs_generate_messages_cpp"
 	@echo "... tf2_msgs_generate_messages_nodejs"

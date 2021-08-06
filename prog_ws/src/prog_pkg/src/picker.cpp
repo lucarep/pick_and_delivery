@@ -28,8 +28,14 @@ int message_published = 0;
 int not_asked = 0;
 int mex_published = 0;
 int info_published = 0;
+int final_published = 0;
 int is_arrived = 0;
 int loaded = 0;
+
+/*
+* Funzione subscriber che riceve la comunicazione dal robot
+* di aver raggiunto la posizione del picker
+*/
 
 void arrivedCallback(const prog_pkg::Arrived& arrived)
 {
@@ -37,9 +43,19 @@ void arrivedCallback(const prog_pkg::Arrived& arrived)
     is_arrived = arrived.reached_goal;
 }
 
+/*
+* Funzione subscriber che riceve la comunicazione dal robot
+* di aver consegnato al deliver con successo il pacco
+*/
+
 void pickedCallback(const prog_pkg::Arrived& pickedCallback){
     ROS_INFO("La spedizione e' avvenuta con successo e il destinatario ha ritirato il pacco");
 }
+
+/*
+* Funzione service che riceve una richiesta dal robot
+* per sapere se il pacco è stato caricato 
+*/
 
 bool isLoaded(prog_pkg::IsLoaded::Request& req,prog_pkg::IsLoaded::Response& res)
 {
@@ -62,6 +78,8 @@ int main(int argc, char **argv){
                                
 )" << '\n';
 
+    // Greetings e comunicazione della posizione 
+
     std::cout << ("Ciao, benvenuto nel servizio di pick and delivery del DIAG!") << '\n';
     std::cout << ("Per favore dimmi dove ti trovi . .. ...") << '\n';
     std::cout << ("x: ");
@@ -76,13 +94,19 @@ int main(int argc, char **argv){
 
     ros::NodeHandle n;
 
+    // Publisher
+
     ros::Publisher picker_pub = n.advertise<prog_pkg::Picker>("picker",1000);
 
     ros::Publisher deliver_pub = n.advertise<prog_pkg::Deliver>("deliver",1000);
 
+    // Subscriber
+
     ros::Subscriber sub_arrived = n.subscribe("arrived",1000,arrivedCallback);
 
     ros::Subscriber sub_picked = n.subscribe("picked",1000,pickedCallback);
+
+    // Service 
 
     ros::ServiceServer service = n.advertiseService("is_loaded",isLoaded);
 
@@ -103,6 +127,8 @@ int main(int argc, char **argv){
             picker.y = picker_y;
             picker.theta = picker_theta;
 
+            // Stampo su terminale una sola volta i dati sulla posizione
+
             if (info_published == 0)
             {
                 ROS_INFO("pubblico valore picker x di: [%f]",picker.x);
@@ -117,6 +143,13 @@ int main(int argc, char **argv){
         }
         
         ros::spinOnce();
+
+        /*
+        * In Questi if annidati viene prima controllato se il robot è arrivato 
+        * nella posizione del picker, in seguito una flag controlla se sono stati
+        * comunicati i dati del goal per la spedizione del pacco, se negativo
+        * l'utente comunica i dati
+        */
 
         if (is_arrived == 1)
         {
@@ -144,13 +177,13 @@ int main(int argc, char **argv){
             picker.y = picker_y;
             picker.theta = picker_theta;
 
-            if (info_published == 0)
+            if (final_published == 0)
             {
-                ROS_INFO("pubblico valore picker x di: [%f]",picker.x);
-                ROS_INFO("pubblico valore picker y di: [%f]",picker.y);
-                ROS_INFO("pubblico valore picker theta di: [%f]",picker.theta);
+                ROS_INFO("pubblico valore deliver x di: [%f]",picker.x);
+                ROS_INFO("pubblico valore deliver y di: [%f]",picker.y);
+                ROS_INFO("pubblico valore deliver theta di: [%f]",picker.theta);
                 
-                info_published++;
+                final_published++;
             }
             
             picker_pub.publish(picker);

@@ -81,7 +81,6 @@
 /home/luca/pick_and_delivery/prog_ws/build/prog_pkg/CMakeFiles/geometry_msgs_generate_messages_eus.dir
 /home/luca/pick_and_delivery/prog_ws/build/prog_pkg/CMakeFiles/geometry_msgs_generate_messages_cpp.dir
 /home/luca/pick_and_delivery/prog_ws/build/prog_pkg/CMakeFiles/geometry_msgs_generate_messages_lisp.dir
-/home/luca/pick_and_delivery/prog_ws/build/prog_pkg/CMakeFiles/set_goal_test.dir
 /home/luca/pick_and_delivery/prog_ws/build/prog_pkg/CMakeFiles/geometry_msgs_generate_messages_py.dir
 /home/luca/pick_and_delivery/prog_ws/build/prog_pkg/CMakeFiles/tf2_msgs_generate_messages_cpp.dir
 /home/luca/pick_and_delivery/prog_ws/build/prog_pkg/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir

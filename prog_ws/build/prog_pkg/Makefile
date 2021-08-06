@@ -783,21 +783,6 @@ geometry_msgs_generate_messages_lisp/fast:
 .PHONY : geometry_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
-prog_pkg/CMakeFiles/set_goal_test.dir/rule:
-	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f CMakeFiles/Makefile2 prog_pkg/CMakeFiles/set_goal_test.dir/rule
-.PHONY : prog_pkg/CMakeFiles/set_goal_test.dir/rule
-
-# Convenience name for target.
-set_goal_test: prog_pkg/CMakeFiles/set_goal_test.dir/rule
-
-.PHONY : set_goal_test
-
-# fast build rule for target.
-set_goal_test/fast:
-	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f prog_pkg/CMakeFiles/set_goal_test.dir/build.make prog_pkg/CMakeFiles/set_goal_test.dir/build
-.PHONY : set_goal_test/fast
-
-# Convenience name for target.
 prog_pkg/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
 	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f CMakeFiles/Makefile2 prog_pkg/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
 .PHONY : prog_pkg/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
@@ -1073,33 +1058,6 @@ src/set_goal.cpp.s:
 	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f prog_pkg/CMakeFiles/set_goal.dir/build.make prog_pkg/CMakeFiles/set_goal.dir/src/set_goal.cpp.s
 .PHONY : src/set_goal.cpp.s
 
-src/set_goal_test.o: src/set_goal_test.cpp.o
-
-.PHONY : src/set_goal_test.o
-
-# target to build an object file
-src/set_goal_test.cpp.o:
-	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f prog_pkg/CMakeFiles/set_goal_test.dir/build.make prog_pkg/CMakeFiles/set_goal_test.dir/src/set_goal_test.cpp.o
-.PHONY : src/set_goal_test.cpp.o
-
-src/set_goal_test.i: src/set_goal_test.cpp.i
-
-.PHONY : src/set_goal_test.i
-
-# target to preprocess a source file
-src/set_goal_test.cpp.i:
-	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f prog_pkg/CMakeFiles/set_goal_test.dir/build.make prog_pkg/CMakeFiles/set_goal_test.dir/src/set_goal_test.cpp.i
-.PHONY : src/set_goal_test.cpp.i
-
-src/set_goal_test.s: src/set_goal_test.cpp.s
-
-.PHONY : src/set_goal_test.s
-
-# target to generate assembly for a file
-src/set_goal_test.cpp.s:
-	cd /home/luca/pick_and_delivery/prog_ws/build && $(MAKE) -f prog_pkg/CMakeFiles/set_goal_test.dir/build.make prog_pkg/CMakeFiles/set_goal_test.dir/src/set_goal_test.cpp.s
-.PHONY : src/set_goal_test.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1152,7 +1110,6 @@ help:
 	@echo "... geometry_msgs_generate_messages_eus"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_lisp"
-	@echo "... set_goal_test"
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... tf2_msgs_generate_messages_cpp"
 	@echo "... tf2_msgs_generate_messages_nodejs"
@@ -1177,9 +1134,6 @@ help:
 	@echo "... src/set_goal.o"
 	@echo "... src/set_goal.i"
 	@echo "... src/set_goal.s"
-	@echo "... src/set_goal_test.o"
-	@echo "... src/set_goal_test.i"
-	@echo "... src/set_goal_test.s"
 .PHONY : help
 
 
