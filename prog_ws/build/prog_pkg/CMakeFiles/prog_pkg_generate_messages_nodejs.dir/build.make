@@ -53,43 +53,29 @@ CMAKE_BINARY_DIR = /home/luca/pick_and_delivery/prog_ws/build
 # Include the progress variables for this target.
 include prog_pkg/CMakeFiles/prog_pkg_generate_messages_nodejs.dir/progress.make
 
-prog_pkg/CMakeFiles/prog_pkg_generate_messages_nodejs: /home/luca/pick_and_delivery/prog_ws/devel/share/gennodejs/ros/prog_pkg/msg/Deliver.js
 prog_pkg/CMakeFiles/prog_pkg_generate_messages_nodejs: /home/luca/pick_and_delivery/prog_ws/devel/share/gennodejs/ros/prog_pkg/msg/Arrived.js
 prog_pkg/CMakeFiles/prog_pkg_generate_messages_nodejs: /home/luca/pick_and_delivery/prog_ws/devel/share/gennodejs/ros/prog_pkg/msg/Picker.js
-prog_pkg/CMakeFiles/prog_pkg_generate_messages_nodejs: /home/luca/pick_and_delivery/prog_ws/devel/share/gennodejs/ros/prog_pkg/msg/Goal.js
 prog_pkg/CMakeFiles/prog_pkg_generate_messages_nodejs: /home/luca/pick_and_delivery/prog_ws/devel/share/gennodejs/ros/prog_pkg/srv/IsLoaded.js
 
 
-/home/luca/pick_and_delivery/prog_ws/devel/share/gennodejs/ros/prog_pkg/msg/Deliver.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
-/home/luca/pick_and_delivery/prog_ws/devel/share/gennodejs/ros/prog_pkg/msg/Deliver.js: /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Deliver.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from prog_pkg/Deliver.msg"
-	cd /home/luca/pick_and_delivery/prog_ws/build/prog_pkg && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Deliver.msg -Iprog_pkg:/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prog_pkg -o /home/luca/pick_and_delivery/prog_ws/devel/share/gennodejs/ros/prog_pkg/msg
-
 /home/luca/pick_and_delivery/prog_ws/devel/share/gennodejs/ros/prog_pkg/msg/Arrived.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
 /home/luca/pick_and_delivery/prog_ws/devel/share/gennodejs/ros/prog_pkg/msg/Arrived.js: /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Arrived.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from prog_pkg/Arrived.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from prog_pkg/Arrived.msg"
 	cd /home/luca/pick_and_delivery/prog_ws/build/prog_pkg && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Arrived.msg -Iprog_pkg:/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prog_pkg -o /home/luca/pick_and_delivery/prog_ws/devel/share/gennodejs/ros/prog_pkg/msg
 
 /home/luca/pick_and_delivery/prog_ws/devel/share/gennodejs/ros/prog_pkg/msg/Picker.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
 /home/luca/pick_and_delivery/prog_ws/devel/share/gennodejs/ros/prog_pkg/msg/Picker.js: /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Picker.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from prog_pkg/Picker.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from prog_pkg/Picker.msg"
 	cd /home/luca/pick_and_delivery/prog_ws/build/prog_pkg && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Picker.msg -Iprog_pkg:/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prog_pkg -o /home/luca/pick_and_delivery/prog_ws/devel/share/gennodejs/ros/prog_pkg/msg
-
-/home/luca/pick_and_delivery/prog_ws/devel/share/gennodejs/ros/prog_pkg/msg/Goal.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
-/home/luca/pick_and_delivery/prog_ws/devel/share/gennodejs/ros/prog_pkg/msg/Goal.js: /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Goal.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Javascript code from prog_pkg/Goal.msg"
-	cd /home/luca/pick_and_delivery/prog_ws/build/prog_pkg && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Goal.msg -Iprog_pkg:/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prog_pkg -o /home/luca/pick_and_delivery/prog_ws/devel/share/gennodejs/ros/prog_pkg/msg
 
 /home/luca/pick_and_delivery/prog_ws/devel/share/gennodejs/ros/prog_pkg/srv/IsLoaded.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
 /home/luca/pick_and_delivery/prog_ws/devel/share/gennodejs/ros/prog_pkg/srv/IsLoaded.js: /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/srv/IsLoaded.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Javascript code from prog_pkg/IsLoaded.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from prog_pkg/IsLoaded.srv"
 	cd /home/luca/pick_and_delivery/prog_ws/build/prog_pkg && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/srv/IsLoaded.srv -Iprog_pkg:/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prog_pkg -o /home/luca/pick_and_delivery/prog_ws/devel/share/gennodejs/ros/prog_pkg/srv
 
 prog_pkg_generate_messages_nodejs: prog_pkg/CMakeFiles/prog_pkg_generate_messages_nodejs
-prog_pkg_generate_messages_nodejs: /home/luca/pick_and_delivery/prog_ws/devel/share/gennodejs/ros/prog_pkg/msg/Deliver.js
 prog_pkg_generate_messages_nodejs: /home/luca/pick_and_delivery/prog_ws/devel/share/gennodejs/ros/prog_pkg/msg/Arrived.js
 prog_pkg_generate_messages_nodejs: /home/luca/pick_and_delivery/prog_ws/devel/share/gennodejs/ros/prog_pkg/msg/Picker.js
-prog_pkg_generate_messages_nodejs: /home/luca/pick_and_delivery/prog_ws/devel/share/gennodejs/ros/prog_pkg/msg/Goal.js
 prog_pkg_generate_messages_nodejs: /home/luca/pick_and_delivery/prog_ws/devel/share/gennodejs/ros/prog_pkg/srv/IsLoaded.js
 prog_pkg_generate_messages_nodejs: prog_pkg/CMakeFiles/prog_pkg_generate_messages_nodejs.dir/build.make
 

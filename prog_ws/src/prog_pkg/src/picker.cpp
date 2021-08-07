@@ -2,9 +2,7 @@
 #include <vector>
 #include <stdio.h>
 #include "std_msgs/String.h"
-#include "prog_pkg/Goal.h"
 #include "prog_pkg/Picker.h"
-#include "prog_pkg/Deliver.h"
 #include "prog_pkg/Arrived.h"
 #include "prog_pkg/IsLoaded.h"
 #include "geometry_msgs/PoseStamped.h"
@@ -97,8 +95,6 @@ int main(int argc, char **argv){
     // Publisher
 
     ros::Publisher picker_pub = n.advertise<prog_pkg::Picker>("picker",1000);
-
-    ros::Publisher deliver_pub = n.advertise<prog_pkg::Deliver>("deliver",1000);
 
     // Subscriber
 

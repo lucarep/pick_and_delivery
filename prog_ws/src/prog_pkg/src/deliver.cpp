@@ -2,9 +2,7 @@
 #include <vector>
 #include <stdio.h>
 #include "std_msgs/String.h"
-#include "prog_pkg/Goal.h"
 #include "prog_pkg/Picker.h"
-#include "prog_pkg/Deliver.h"
 #include "prog_pkg/Arrived.h"
 #include "prog_pkg/IsLoaded.h"
 #include "geometry_msgs/PoseStamped.h"

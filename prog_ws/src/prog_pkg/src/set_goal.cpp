@@ -2,9 +2,7 @@
 #include <vector>
 #include <stdio.h>
 #include "std_msgs/String.h"
-#include "prog_pkg/Goal.h"
 #include "prog_pkg/Picker.h"
-#include "prog_pkg/Deliver.h"
 #include "prog_pkg/Arrived.h"
 #include "prog_pkg/IsLoaded.h"
 #include "geometry_msgs/PoseStamped.h"
@@ -29,7 +27,6 @@ int is_delivered = 0;
 
 // Vettori di posizione
 std::vector<float> picker_position(2,0);
-std::vector<float> delivery_position(2,0);
 std::vector<float> old_position(2,0);
 std::vector<float> current_position(2,0);
 

@@ -53,48 +53,34 @@ CMAKE_BINARY_DIR = /home/luca/pick_and_delivery/prog_ws/build
 # Include the progress variables for this target.
 include prog_pkg/CMakeFiles/prog_pkg_generate_messages_eus.dir/progress.make
 
-prog_pkg/CMakeFiles/prog_pkg_generate_messages_eus: /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/msg/Deliver.l
 prog_pkg/CMakeFiles/prog_pkg_generate_messages_eus: /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/msg/Arrived.l
 prog_pkg/CMakeFiles/prog_pkg_generate_messages_eus: /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/msg/Picker.l
-prog_pkg/CMakeFiles/prog_pkg_generate_messages_eus: /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/msg/Goal.l
 prog_pkg/CMakeFiles/prog_pkg_generate_messages_eus: /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/srv/IsLoaded.l
 prog_pkg/CMakeFiles/prog_pkg_generate_messages_eus: /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/manifest.l
 
 
-/home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/msg/Deliver.l: /opt/ros/melodic/lib/geneus/gen_eus.py
-/home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/msg/Deliver.l: /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Deliver.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from prog_pkg/Deliver.msg"
-	cd /home/luca/pick_and_delivery/prog_ws/build/prog_pkg && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Deliver.msg -Iprog_pkg:/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prog_pkg -o /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/msg
-
 /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/msg/Arrived.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/msg/Arrived.l: /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Arrived.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from prog_pkg/Arrived.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from prog_pkg/Arrived.msg"
 	cd /home/luca/pick_and_delivery/prog_ws/build/prog_pkg && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Arrived.msg -Iprog_pkg:/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prog_pkg -o /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/msg
 
 /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/msg/Picker.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/msg/Picker.l: /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Picker.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp code from prog_pkg/Picker.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from prog_pkg/Picker.msg"
 	cd /home/luca/pick_and_delivery/prog_ws/build/prog_pkg && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Picker.msg -Iprog_pkg:/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prog_pkg -o /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/msg
-
-/home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/msg/Goal.l: /opt/ros/melodic/lib/geneus/gen_eus.py
-/home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/msg/Goal.l: /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Goal.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating EusLisp code from prog_pkg/Goal.msg"
-	cd /home/luca/pick_and_delivery/prog_ws/build/prog_pkg && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg/Goal.msg -Iprog_pkg:/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prog_pkg -o /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/msg
 
 /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/srv/IsLoaded.l: /opt/ros/melodic/lib/geneus/gen_eus.py
 /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/srv/IsLoaded.l: /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/srv/IsLoaded.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating EusLisp code from prog_pkg/IsLoaded.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp code from prog_pkg/IsLoaded.srv"
 	cd /home/luca/pick_and_delivery/prog_ws/build/prog_pkg && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/luca/pick_and_delivery/prog_ws/src/prog_pkg/srv/IsLoaded.srv -Iprog_pkg:/home/luca/pick_and_delivery/prog_ws/src/prog_pkg/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p prog_pkg -o /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/srv
 
 /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/manifest.l: /opt/ros/melodic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating EusLisp manifest code for prog_pkg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/luca/pick_and_delivery/prog_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating EusLisp manifest code for prog_pkg"
 	cd /home/luca/pick_and_delivery/prog_ws/build/prog_pkg && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg prog_pkg std_msgs
 
 prog_pkg_generate_messages_eus: prog_pkg/CMakeFiles/prog_pkg_generate_messages_eus
-prog_pkg_generate_messages_eus: /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/msg/Deliver.l
 prog_pkg_generate_messages_eus: /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/msg/Arrived.l
 prog_pkg_generate_messages_eus: /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/msg/Picker.l
-prog_pkg_generate_messages_eus: /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/msg/Goal.l
 prog_pkg_generate_messages_eus: /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/srv/IsLoaded.l
 prog_pkg_generate_messages_eus: /home/luca/pick_and_delivery/prog_ws/devel/share/roseus/ros/prog_pkg/manifest.l
 prog_pkg_generate_messages_eus: prog_pkg/CMakeFiles/prog_pkg_generate_messages_eus.dir/build.make

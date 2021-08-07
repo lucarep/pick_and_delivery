@@ -3,8 +3,6 @@
 
 prog_pkg/CMakeFiles/set_goal.dir/src/set_goal.cpp.o
  /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Arrived.h
- /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Deliver.h
- /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/Goal.h
  /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/IsLoaded.h
  /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/IsLoadedRequest.h
  /home/luca/pick_and_delivery/prog_ws/devel/include/prog_pkg/IsLoadedResponse.h
